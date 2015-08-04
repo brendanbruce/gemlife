@@ -1,0 +1,34 @@
+= form_for @user do |f|
+  %fieldset
+    = f.label :first_name
+    = f.text_field :first_name
+
+    = f.label :last_name
+    = f.text_field :last_name
+
+    = f.label :email
+    = f.text_field :email
+
+  %fieldset
+    = f.label :type, "What is your role?"
+    = f.radio_button :type, "Fan"
+    %span I will use this to find artist
+    = f.radio_button :type, "Artist"
+    %span I am a dj an I will post events
+
+  %fieldset
+    %h3 Social
+    = f.label :website
+    = f.text_field :website
+
+    = f.label :twitter_url
+    = f.text_field :twitter_url
+
+    = f.label :soundcloud_url
+    = f.text_field :soundcloud_url
+
+    = f.label :facebook_url
+    = f.text_field :facebook_url
+
+  %fieldset
+    = f.submit "Update", class: "button"
