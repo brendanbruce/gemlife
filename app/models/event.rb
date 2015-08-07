@@ -1,6 +1,11 @@
 class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
+
+  belongs_to :venue
+
+  accepts_nested_attributes_for :venue
+
 end
 
 def upcoming?(event)
