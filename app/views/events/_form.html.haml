@@ -17,5 +17,9 @@
   .field
     = f.label :event_link
     = f.text_field :event_link
+
+  .field
+    = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name)
+
   .actions
     = f.submit 'Save'
