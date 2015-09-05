@@ -1,16 +1,21 @@
 %nav.navigation
-  %ul
-    %li
-      - if user_signed_in?
-        %h2
+  .navigation__frame
+    .logo
+      Gemlife
+    %ul.navigation__left
+      %li.navigation__item
+        =link_to "All Events", events_path
+      %li.navigation__item
+        =link_to "My Events", events_path
+      %li.navigation__item
+        =link_to "Venues", venues_path
+    %ul.navigation__right
+      %li.navigation__item
+        - if user_signed_in?
           Signed in as
           = current_user.email
-          = link_to 'Sign out', destroy_user_session_path, method: "delete"
-      - else
-        %h2 Not Signed In
-    %li
-      %a.test
-        Test
-    %li
-      %a.test
-        Test
+          = link_to "Sign out", destroy_user_session_path, method: "delete"
+        - else
+          = link_to "Sign In", new_user_session_path
+      %li.navigation__item
+        =link_to "Post an Event", new_event_path

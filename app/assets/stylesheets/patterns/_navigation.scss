@@ -1,4 +1,22 @@
 .navigation {
+  @include row();
   background-color: black;
-  color: white;
+  padding: 1em 0;
+}
+
+.navigation__frame {
+  @include outer-container();
+}
+
+.navigation__left {
+  float: left;
+}
+
+.navigation__item {
+  float: left;
+  margin-left: 1em;
+}
+
+.navigation__right {
+  float: right;
 }
