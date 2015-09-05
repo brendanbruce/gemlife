@@ -4,8 +4,10 @@ source 'https://rubygems.org'
 gem 'coffee-rails', '~> 4.1.0'
 gem "devise"
 gem "haml-rails", "~> 0.9"
+gem "bourbon"
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem "neat"
 gem 'pg'
 gem 'rails', '4.2.1'
 gem "sanitize"

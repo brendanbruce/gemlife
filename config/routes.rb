@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :events
-  resources :users
   resources :fans, controller: "users", type: "Fan"
   resources :artists, controller: "users", type: "Artist"
   resources :venues
