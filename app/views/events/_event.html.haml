@@ -1,0 +1,24 @@
+.event
+  %div.outer-container
+    .event__image
+    .event__info
+      .event__header
+        %h2.event__header__title
+          = link_to event.title, event
+        .event__header__like
+          = fa_icon "star"
+      .event__info__venue-name
+        = link_to event.venue_name, event.venue
+      .outer-container
+        .event__info__date
+          = fa_icon "calendar"
+          = format_date(event.date)
+        .event__info__time
+          = fa_icon "clock-o"
+          = format_time(event.date)
+      .event__info__link
+        = link_to "More Info", event.event_link, class: "button"
+    .event__edit-options
+      - if user_signed_in?
+        = link_to 'Edit', edit_event_path(event)
+        = link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }

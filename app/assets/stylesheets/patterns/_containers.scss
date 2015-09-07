@@ -1,0 +1,8 @@
+.main-container {
+  background-color: $background-gray;
+  padding-top: 3em;
+}
+
+.outer-container {
+  @include outer-container();
+}

@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-
+gem "bourbon"
 gem 'coffee-rails', '~> 4.1.0'
 gem "devise"
+gem "font-awesome-rails"
 gem "haml-rails", "~> 0.9"
-gem "bourbon"
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem "neat"

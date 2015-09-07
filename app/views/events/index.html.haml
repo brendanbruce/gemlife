@@ -1,27 +1,7 @@
-%h1 Listing events
+%main.main-container
+  %header.outer-container
+    %h1 Events
 
-%table
-  %thead
-    %tr
-      %th Date
-      %th Description
-      %th Event link
-      %th Venue
-      %th
-      %th
-      %th
-
-  %tbody
+  %section.outer-container
     - @events.each do |event|
-      %tr
-        %td= event.date
-        %td= event.description
-        %td= event.event_link
-        %td= event.venue_name
-        %td= link_to 'Show', event
-        %td= link_to 'Edit', edit_event_path(event)
-        %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Event', new_event_path
+      = render partial: "event", locals: { event: event }

@@ -1,0 +1,76 @@
+.event {
+  background-color: white;
+  //border-bottom: 1px $light-gray solid;
+  margin-bottom: 1em;
+  box-shadow: $card-shadow;
+
+}
+
+.event__edit-options {
+  clear: both;
+}
+
+.event__header {
+  margin-bottom: 1em;
+
+}
+
+.event__header__like {
+  @include span-columns(1 of 9);
+  color: $light-gray;
+  font-size: 1.5em;
+  float: right;
+  text-align: right;
+}
+
+.event__header__title {
+  @include span-columns(8 of 9);
+  font-size: 2em;
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+
+  a {
+    color: #2f63b7;
+    display: inline-block;
+    border-bottom: #D6E5F9 3px solid;
+    padding-bottom: 0.5rem;
+  }
+
+  a:hover {
+    border-bottom: #698CB7 3px solid;
+  }
+}
+
+.event__image {
+  @include span-columns(3);
+  background-color: gray;
+  //temp height
+  height: 15em;
+}
+
+.event__info {
+  @include span-columns(9);
+  @include omega();
+  padding: 2em 2em 2em 0;
+}
+
+.event__info__date,
+.event__info__time {
+  color: gray;
+  float: left;
+}
+
+.event__info__time {
+  margin-left: 1em;
+}
+
+.event__info__link {
+  clear: both;
+  margin-top: 1.5em;
+}
+
+.event__info__venue-name {
+  clear: both;
+}
