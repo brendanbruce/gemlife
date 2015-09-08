@@ -2,6 +2,15 @@ class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
 
+  has_attached_file :flyer, styles: {
+    preview: "640x640"
+  }
+  validates_attachment :flyer, content_type: {
+    content_type: ["image/jpg",
+                   "image/jpeg",
+                   "image/png",
+                   "image/gif"] }
+
   belongs_to :venue
 
   accepts_nested_attributes_for :venue

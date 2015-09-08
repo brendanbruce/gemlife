@@ -46,11 +46,18 @@
 .event__image {
   @include span-columns(3);
   background-color: gray;
-  //temp height
-  height: 15em;
+
+  img {
+    display: block;
+  }
 }
 
 .event__info {
+  @include span-columns(12);
+  padding: 2em;
+}
+
+.event__image + .event__info {
   @include span-columns(9);
   @include omega();
   padding: 2em 2em 2em 0;

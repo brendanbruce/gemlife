@@ -1,13 +1,16 @@
 source 'https://rubygems.org'
 
+gem "aws-sdk", "< 2.0"
 gem "bourbon"
 gem 'coffee-rails', '~> 4.1.0'
 gem "devise"
+gem "figaro"
 gem "font-awesome-rails"
 gem "haml-rails", "~> 0.9"
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem "neat"
+gem "paperclip"
 gem 'pg'
 gem 'rails', '4.2.1'
 gem "sanitize"
