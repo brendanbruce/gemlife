@@ -1,15 +1,29 @@
 %p#notice= notice
 
-%p
-  %b Date:
-  = @event.date
-%p
-  %b Description:
-  = @event.description
-%p
-  %b Event link:
-  = @event.event_link
+%main.main-container
+  %header.outer-container
+    .event__header
+      %h4
+        = link_to @event.venue.name, @event.venue
+      %h1
+        = @event.title
 
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+  %section.outer-container
+    .event
+      .outer-container
+        = event_flyer_image(@event)
+        .event__info
+          .outer-container
+            .event__info__date
+              = fa_icon "calendar"
+              = format_date(@event.date)
+            .event__info__time
+              = fa_icon "clock-o"
+              = format_time(@event.date)
+          .event__info__description
+            = @event.description
+          .event__info__link
+            = link_to "More Info", @event.event_link, class: "button"
+        .event__edit-options
+          - if user_signed_in?
+            = link_to 'Edit', edit_event_path(@event)
