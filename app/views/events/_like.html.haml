@@ -1,0 +1,11 @@
+.event__header__like
+  - if current_user
+    - if like = current_user.likes.find_by(event_id: event.id)
+      = form_for like, method: :delete do |f|
+        = f.submit "Unlike"
+
+    - else
+      = form_for Like.new(event: event) do |f|
+        = f.hidden_field(:event_id, value: event.id)
+        = f.submit "Like"
+

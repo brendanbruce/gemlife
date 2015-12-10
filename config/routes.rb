@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :events
+  resources :likes, only: [:index, :create, :destroy]
   resources :fans, controller: "users", type: "Fan"
   resources :artists, controller: "users", type: "Artist"
   resources :venues

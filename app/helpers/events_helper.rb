@@ -5,6 +5,14 @@ module EventsHelper
     end
   end
 
+  def event_like(event)
+    if event.users.include?(current_user)
+      submit_tag "Unlike"
+    else
+      submit_tag "Like"
+    end
+  end
+
   def format_date(date)
     date.strftime("%A, %B %-d")
   end

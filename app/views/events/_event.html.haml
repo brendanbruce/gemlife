@@ -5,8 +5,7 @@
       .event__header
         %h2.event__header__title
           = link_to event.title, event
-        .event__header__like
-          = fa_icon "star"
+        = render partial: "like", locals: { event: event }
       .event__info__venue-name
         = link_to event.venue_name, event.venue
       .outer-container
@@ -18,6 +17,12 @@
           = format_time(event.date)
       .event__info__link
         = link_to "More Info", event.event_link, class: "button"
+      .event__likes
+        %h3
+          = event.likes_count
+          Likes
+        - event.users.each do |user|
+          = user.email
     .event__edit-options
       - if user_signed_in?
         = link_to 'Edit', edit_event_path(event)

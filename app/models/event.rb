@@ -13,7 +13,14 @@ class Event < ActiveRecord::Base
 
   belongs_to :venue
 
+  has_many :likes
+  has_many :users, :through => :likes
+
   accepts_nested_attributes_for :venue
+
+  def likes_count
+    likes.count
+  end
 
   def venue_name
     if venue.blank?
