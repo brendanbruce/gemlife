@@ -1,5 +1,15 @@
+.centered {
+  width: 100%;
+}
+
 .logo {
-  color: white;
+  @include transform(translateX(-50%));
+  color: black;
+  font-size: 1.25em;
   font-weight: bold;
   float: left;
+  left: 50%;
+  margin: 0 auto;
+  padding: 0.875rem 0;
+  position: absolute;
 }
