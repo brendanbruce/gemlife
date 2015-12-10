@@ -1,3 +1,7 @@
 .clearfix {
   @include clearfix();
 }
+
+.margin-auto {
+  margin: 0 auto;
+}

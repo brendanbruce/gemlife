@@ -1,7 +1,7 @@
-%main.main-container
-  %header.outer-container
+%main.outer-container.main-container
+  %header
     %h1 Events
 
-  %section.outer-container
+  %section
     - @events.each do |event|
       = render partial: "event", locals: { event: event }
