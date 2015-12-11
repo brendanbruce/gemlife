@@ -4,7 +4,7 @@
     .event__header
       %h2.event__header__title
         = link_to event.title, event
-      = render partial: "like", locals: { event: event }
+      = render partial: "events/like", locals: { event: event }
     .event__info__venue-name
       = link_to event.venue_name, event.venue
     .outer-container

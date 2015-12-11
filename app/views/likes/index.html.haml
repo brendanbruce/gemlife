@@ -1,0 +1,7 @@
+%main.outer-container.main-container
+  %header
+    %h1 My Events
+
+  %section
+    - @likes.where(user_id: current_user.id).each do |like|
+      = render partial: "events/event", locals: { event: like.event }

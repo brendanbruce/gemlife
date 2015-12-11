@@ -1,6 +1,8 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :edit]
+
   def index
-    @user = current_user
+    @likes = Like.all
   end
 
   def new

@@ -2,6 +2,7 @@
   @include row();
   background-color: white;
   border-bottom: 1px $light-gray solid;
+  border-top: 1px $light-gray solid;
   position: relative;
   text-transform: uppercase;
 }
