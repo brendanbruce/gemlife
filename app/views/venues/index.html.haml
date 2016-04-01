@@ -1,5 +1,7 @@
-%h1 All Venues
+%main.outer-container.main-container
+  %header
+    %h1 All Venues
 
-- @venues.each do |venue|
-  %h3
-    = link_to venue.name, venue
+  %section
+    - @venues.each do |venue|
+      = render partial: "venue", locals: { venue: venue }

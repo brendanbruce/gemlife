@@ -1,4 +1,23 @@
-%h1
-  = @venue.name
-%p
-  = @venue.description
+%main.outer-container.main-container
+  %header
+    %h1
+      = @venue.name
+
+  %section
+    = @venue.description
+
+  .venue-card
+    .venue-card__image
+      = image_tag "Marquee5.jpg", class: "venue-card__image"
+    %h3.venue-card__header
+      = link_to @venue.name, @venue
+    .venue-card__address
+      = @venue.street_address
+      %br
+      = @venue.city
+      = @venue.state
+    .venue-card__links
+      = website_link(@venue)
+      = facebook_link(@venue)
+      = twitter_link(@venue)
+

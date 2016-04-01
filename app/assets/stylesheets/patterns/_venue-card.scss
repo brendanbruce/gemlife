@@ -1,0 +1,48 @@
+.venue-card {
+  @include span-columns(4);
+  @include omega(3n);
+
+  border: $base-border;
+  border-radius: 4px;
+  box-shadow: $card-shadow;
+  margin-bottom: 1em;
+  min-height: 25em;
+  overflow: hidden
+}
+
+.venue-card__address {
+  font-size: 1em;
+  padding: 1rem;
+}
+
+.venue-card__header {
+  border-bottom: $base-border;
+  font-size: 1.25em;
+  letter-spacing: -0.5px;
+  padding: 1rem;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.venue-card__icon {
+  display: inline-block;
+  font-size: 1.25em;
+  margin-right: 0.5em;
+}
+
+.venue-card__image {
+  display: block;
+  height: 10em;
+  overflow: hidden;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+
+.venue-card__links {
+  padding: 1rem;
+}
