@@ -24,6 +24,8 @@
             = @event.description
           .event__info__link
             = link_to "More Info", @event.event_link, class: "button"
+          .event__info__tags
+            = render @event.tags
         .event__edit-options
           - if user_signed_in?
             = link_to 'Edit', edit_event_path(@event)

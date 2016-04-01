@@ -17,6 +17,7 @@ class Event < ActiveRecord::Base
   has_many :users, :through => :likes
 
   accepts_nested_attributes_for :venue
+  acts_as_taggable
 
   def likes_count
     likes.count

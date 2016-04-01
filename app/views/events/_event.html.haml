@@ -22,6 +22,8 @@
         Likes
       - event.users.each do |user|
         = user.email
+    .tags
+      = render event.tags
   .event__edit-options
     - if user_signed_in?
       = link_to 'Edit', edit_event_path(event)
