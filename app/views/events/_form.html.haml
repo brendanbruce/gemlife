@@ -1,35 +1,51 @@
-= form_for @event, html: { multipart: true } do |f|
-  - if @event.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
-      %ul
-        - @event.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :date
-    = f.datetime_select :date
-  .field
-    = f.label :flyer
-    = f.file_field :flyer
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :event_link
-    = f.text_field :event_link
-  .field
-    = f.label :tag_list
-    = f.text_field :tag_list
+%main.outer-container.main-container
+  %header
+    %h1 Create a New Event
 
-  .field
-    = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name)
+  %section
+    .form-container
+      = form_for @event, html: { multipart: true } do |f|
+        - if @event.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
+            %ul
+              - @event.errors.full_messages.each do |msg|
+                %li= msg
 
-  .venue-notice
-    %h4 Your venue is not here?
-    = link_to("Add Venue", new_venue_path)
+        .field
+          = f.label :title
+          = f.text_field :title, value: "Enter your event here"
+        .field
+          = f.label :start_date
+          = f.text_field :start_date
+        .field
+          = f.label :start_time
+          = f.text_field :start_time
+        .field
+          = f.label :end_date
+          = f.text_field :end_date
+        .field
+          = f.label :end_time
+          = f.text_field :end_time
+        .field
+          = f.label :flyer
+          = f.file_field :flyer
+        .field
+          = f.label :description
+          = f.text_area :description
+        .field
+          = f.label :event_link
+          = f.text_field :event_link
+        .field
+          = f.label :tag_list
+          = f.text_field :tag_list
 
-  .actions
-    = f.submit 'Save'
+        .field
+          = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name)
+
+        .venue-notice
+          %h4 Your venue is not here?
+          = link_to("Add Venue", new_venue_path)
+
+        .actions
+          = f.submit 'Save'

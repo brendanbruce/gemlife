@@ -12,6 +12,8 @@ gem "font-awesome-rails"
 gem "haml-rails", "~> 0.9"
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-timepicker-rails'
 gem "neat"
 gem "paperclip"
 gem 'pg'

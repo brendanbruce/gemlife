@@ -1,0 +1,3 @@
+$(function() {
+  $('.start-time').timepicker();
+});
