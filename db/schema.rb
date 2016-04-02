@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401193340) do
+ActiveRecord::Schema.define(version: 20160401233508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.datetime "date"
     t.text     "description"
     t.string   "event_link"
     t.datetime "created_at",         null: false
@@ -28,6 +27,10 @@ ActiveRecord::Schema.define(version: 20160401193340) do
     t.string   "flyer_content_type"
     t.integer  "flyer_file_size"
     t.datetime "flyer_updated_at"
+    t.date     "start_date"
+    t.time     "start_time"
+    t.date     "end_date"
+    t.time     "end_time"
   end
 
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree

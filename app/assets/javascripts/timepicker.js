@@ -1,3 +1,3 @@
 $(function() {
-  $('.start-time').timepicker();
+  $('.timepicker').timepicker();
 });

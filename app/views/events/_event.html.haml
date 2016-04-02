@@ -10,10 +10,10 @@
     .outer-container
       .event__info__date
         = fa_icon "calendar"
-        = format_date(event.date)
+        = format_date(event.start_date)
       .event__info__time
         = fa_icon "clock-o"
-        = format_time(event.date)
+        = format_time(event.start_time)
     .event__info__link
       = link_to "More Info", event.event_link, class: "button"
     .event__likes

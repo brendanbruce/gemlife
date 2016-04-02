@@ -13,11 +13,19 @@ module EventsHelper
     end
   end
 
-  def format_date(date)
-    date.strftime("%A, %B %-d")
+  def format_date(start_date)
+    if start_date.present?
+      start_date.strftime("%A, %B %-d")
+    else
+      "No Date specified"
+    end
   end
 
-  def format_time(time)
-    time.strftime("%l:%M %P")
+  def format_time(start_time)
+    if start_time.present?
+      start_time.strftime("%l:%M %P")
+    else
+      "No Time specified"
+    end
   end
 end

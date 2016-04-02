@@ -1,6 +1,9 @@
 class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
+  validates :start_date, presence: true
+  validates :start_time, presence: true
+
 
   has_attached_file :flyer, styles: {
     preview: "640x640"
