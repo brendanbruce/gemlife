@@ -5,3 +5,11 @@
 .outer-container {
   @include outer-container;
 }
+
+.form-container {
+  @include span-columns(6);
+  @include shift(3);
+
+  border: $base-border;
+  padding: 2em;
+}

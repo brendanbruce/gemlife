@@ -1,51 +1,57 @@
-%main.outer-container.main-container
-  %header
-    %h1 Create a New Event
+.form-container
+  = form_for @event, html: { multipart: true } do |f|
+    - if @event.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
+        %ul
+          - @event.errors.full_messages.each do |msg|
+            %li= msg
 
-  %section
-    .form-container
-      = form_for @event, html: { multipart: true } do |f|
-        - if @event.errors.any?
-          #error_explanation
-            %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
-            %ul
-              - @event.errors.full_messages.each do |msg|
-                %li= msg
+    %fieldset.field-group
+      %legend Event Info
+      .field
+        = f.label :title
+        = f.text_field :title, value: "Enter your event here"
+      .field
+        = f.label :venue
+        = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name)
+      .venue-notice
+        %h4 Your venue is not here?
+        = link_to("Add Venue", new_venue_path)
 
-        .field
-          = f.label :title
-          = f.text_field :title, value: "Enter your event here"
-        .field
-          = f.label :start_date
-          = f.text_field :start_date, class: "datepicker"
-        .field
-          = f.label :start_time
-          = f.text_field :start_time, class: "timepicker"
-        .field
-          = f.label :end_date
-          = f.text_field :end_date, class: "datepicker"
-        .field
-          = f.label :end_time
-          = f.text_field :end_time, class: "timepicker"
-        .field
-          = f.label :flyer
-          = f.file_field :flyer
-        .field
-          = f.label :description
-          = f.text_area :description
-        .field
-          = f.label :event_link
-          = f.text_field :event_link
-        .field
-          = f.label :tag_list
-          = f.text_field :tag_list
+      .field
+        = f.label :description
+        = f.text_area :description
+      .field
+        = f.label :flyer
+        = f.file_field :flyer
 
-        .field
-          = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name)
+    %fieldset.field-group
+      %legend Start Date
+      .field
+        = f.label :start_date
+        = f.text_field :start_date, class: "datepicker"
+      .field
+        = f.label :start_time
+        = f.text_field :start_time, class: "timepicker"
 
-        .venue-notice
-          %h4 Your venue is not here?
-          = link_to("Add Venue", new_venue_path)
+    %fieldset.field-group
+      %legend End Date (optional)
+      .field
+        = f.label :end_date
+        = f.text_field :end_date, class: "datepicker"
+      .field
+        = f.label :end_time
+        = f.text_field :end_time, class: "timepicker"
 
-        .actions
-          = f.submit 'Save'
+    %fieldset.field-group
+      %legend Extra Info
+      .field
+        = f.label :event_link
+        = f.text_field :event_link
+      .field
+        = f.label :tag_list
+        = f.text_field :tag_list
+
+    .actions
+      = f.submit 'Publish Event'
