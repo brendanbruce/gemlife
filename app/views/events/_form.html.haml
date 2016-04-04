@@ -14,7 +14,7 @@
         = f.text_field :title, value: "Enter your event here"
       .field
         = f.label :venue
-        = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name)
+        = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name), {include_blank: true}, {class: "autocomplete"}
       .venue-notice
         %h4 Your venue is not here?
         = link_to("Add Venue", new_venue_path)

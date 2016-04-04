@@ -5,6 +5,7 @@ ruby "2.2.3"
 gem "acts-as-taggable-on"
 gem "aws-sdk", "< 2.0"
 gem "bourbon"
+gem "chosen-rails"
 gem 'coffee-rails', '~> 4.1.0'
 gem "devise"
 gem "figaro"
