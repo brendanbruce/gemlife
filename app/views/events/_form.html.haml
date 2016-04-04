@@ -7,51 +7,61 @@
           - @event.errors.full_messages.each do |msg|
             %li= msg
 
-    %fieldset.field-group
-      %legend Event Info
-      .field
-        = f.label :title
-        = f.text_field :title, value: "Enter your event here"
-      .field
-        = f.label :venue
-        = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name), {include_blank: true}, {class: "autocomplete"}
-      .venue-notice
-        %h4 Your venue is not here?
-        = link_to("Add Venue", new_venue_path)
+    .field-group
+      .field-group__header
+        %h3 First, tell us a little about your party
+      .field-group__fields
+        .field
+          = f.label :title
+          = f.text_field :title, placeholder: "Enter the name of your party here"
+        .field
+          = f.label :venue
+          = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name), {include_blank: true}, {class: "autocomplete"}
+        .field-group__venue-notice
+          %span Don't see your venue?
+          = link_to("Add New Venue", new_venue_path, class: "button")
 
-      .field
-        = f.label :description
-        = f.text_area :description
-      .field
-        = f.label :flyer
-        = f.file_field :flyer
+        .field
+          = f.label :description
+          = f.text_area :description, placeholder: "A short description of your party..."
+        .field
+          = f.label :flyer
+          = f.file_field :flyer
 
-    %fieldset.field-group
-      %legend Start Date
-      .field
-        = f.label :start_date
-        = f.text_field :start_date, class: "datepicker"
-      .field
-        = f.label :start_time
-        = f.text_field :start_time, class: "timepicker"
+    .field-group
+      .field-group__header
+        %h3 Now give us the date and time
+      .field-group__fields
+        .field
+          = f.label :start_date
+          = f.text_field :start_date, class: "datepicker"
+        .field
+          = f.label :start_time
+          = f.text_field :start_time, class: "timepicker"
 
-    %fieldset.field-group
-      %legend End Date (optional)
-      .field
-        = f.label :end_date
-        = f.text_field :end_date, class: "datepicker"
-      .field
-        = f.label :end_time
-        = f.text_field :end_time, class: "timepicker"
+    .field-group
+      .field-group__header
+        %h3 Need an end date? (optional)
+      .field-group__fields
+        .field
+          = f.label :end_date
+          = f.text_field :end_date, class: "datepicker"
+        .field
+          = f.label :end_time
+          = f.text_field :end_time, class: "timepicker"
 
-    %fieldset.field-group
-      %legend Extra Info
-      .field
-        = f.label :event_link
-        = f.text_field :event_link
-      .field
-        = f.label :tag_list
-        = f.text_field :tag_list
+    .field-group
+      .field-group__header
+        %h3 Any additional info? (optional)
+      .field-group__fields
+        .field
+          = f.label :event_link
+          = f.text_field :event_link, placeholder: "Link to more event info, like Facebook page"
+        .field
+          = f.label :tag_list
+          %small
+            Add up to 3 tags for genres (e.g. rap, trap, futurebeats)
+          = f.text_field :tag_list, placeholder: "Add tags separated by commas"
 
-    .actions
-      = f.submit 'Publish Event'
+    .field-group--submit
+      = f.submit 'Post Your Party!', class: "button"

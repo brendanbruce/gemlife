@@ -1,0 +1,100 @@
+.field-group {
+
+}
+
+.field-group__fields {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.field-group__header {
+  background-color: $blue;
+  font-size: 1.25em;
+  line-height: 1;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+
+  h3 {
+    color: white;
+    font-size: 1em;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.field-group__venue-notice {
+  background-color: $background-gray;
+  border-radius: $base-border-radius;
+  margin: 1em 0;
+  padding: 1em;
+  width: 100%;
+}
+
+.field-group--submit {
+  background-color: $background-gray;
+  border-top: $base-border;
+  padding: 1em;
+  width: 100%;
+
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    background-color: #DC4147;
+    display: block;
+    font-weight: bold;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.chosen-container {
+  font-size: 1em;
+}
+
+.chosen-container-single .chosen-single {
+  background: none;
+  border: 2px solid $background-gray;
+  border-radius: 0;
+  box-shadow: none;
+  height: auto;
+  padding: 0.5em;
+}
+
+.chosen-container-single .chosen-single div b {
+  background-position: 0px 10px;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+  background: none;
+  border: 2px solid $background-gray;
+  border-radius: none;
+}
+
+.chosen-container .chosen-drop {
+  border: 2px solid $background-gray;
+  border-top: 0;
+}
+
+.chosen-container .chosen-results {
+  font-size: 0.825em;
+}
+
+.chosen-container .chosen-results li {
+  padding: 0.5em
+}
+
+.chosen-container .chosen-results li.highlighted {
+  background-color: $blue;
+  background-image: none;
+}
+
+.chosen-results .active-result {
+  font-size: 1em;
+  padding: 0.5em;
+}
