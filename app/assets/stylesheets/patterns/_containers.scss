@@ -17,3 +17,13 @@
     @include shift(2);
   }
 }
+
+.form-container--login {
+  @extend .form-container;
+  margin-top: 2em;
+
+  @include media($medium-screen) {
+    @include span-columns(6);
+    @include shift(3);
+  }
+}
