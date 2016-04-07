@@ -1,12 +1,14 @@
 .form-container
-  = form_for @event, html: { multipart: true } do |f|
-    - if @event.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
-        %ul
-          - @event.errors.full_messages.each do |msg|
-            %li= msg
+  - if @event.errors.any?
+    .error-explanation
+      %h2
+        = "#{pluralize(@event.errors.count, "error")} prohibited this event from being created:"
+      %ul
+        - @event.errors.full_messages.each do |msg|
+          %li= msg
 
+.form-container
+  = form_for @event, html: { multipart: true } do |f|
     .field-group
       .field-group__header
         %h3 First, tell us a little about your party

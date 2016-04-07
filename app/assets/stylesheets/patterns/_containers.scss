@@ -10,7 +10,7 @@
   @include span-columns(12);
   @include shift(0);
   border: $base-border;
-  margin-bottom: 5em;
+  margin-bottom: 2em;
 
   @include media($medium-screen) {
     @include span-columns(8);
