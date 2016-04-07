@@ -1,0 +1,7 @@
+%main.outer-container.main-container
+  %header
+    %h1 All Profiles
+
+  %section
+    - @profiles.each do |profile|
+      = profile.name

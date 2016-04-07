@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401233508) do
+ActiveRecord::Schema.define(version: 20160407062435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(version: 20160401233508) do
     t.integer  "user_id"
     t.integer  "event_id"
   end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.string   "website"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "soundcloud"
+    t.string   "mixcloud"
+    t.boolean  "dj"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :likes
   has_many :events, :through => :likes
+  has_one :profile
 
   def skip_confirm!
     self.confirm! if Rails.env.development?

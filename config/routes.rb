@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events
   resources :likes, only: [:index, :create, :destroy]
-  resources :fans, controller: "users", type: "Fan"
-  resources :artists, controller: "users", type: "Artist"
   resources :venues
+  resources :profiles
   resources :tags, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
