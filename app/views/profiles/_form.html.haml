@@ -1,0 +1,44 @@
+.form-container
+  - if @profile.errors.any?
+    .error-explanation
+      %h2
+        = "#{pluralize(@event.errors.count, "error")} prohibited this event from being created:"
+      %ul
+        - @event.errors.full_messages.each do |msg|
+          %li= msg
+
+.form-container
+  = form_for @profile, html: { multipart: true } do |f|
+    .field-group
+      .field-group__header
+        %h3 Basic Info
+      .field-group__fields
+        .field
+          = f.label :name
+          = f.text_field :name, placeholder: "Enter your name here"
+        .field
+          = f.label :bio
+          = f.text_area :bio, placeholder: "Add your bio"
+
+    .field-group
+      .field-group__header
+        %h3 On the web
+      .field-group__fields
+        .field
+          = f.label :website
+          = f.text_field :website
+        .field
+          = f.label :twitter
+          = f.text_field :twitter
+        .field
+          = f.label :facebook
+          = f.text_field :facebook
+        .field
+          = f.label :soundcloud
+          = f.text_field :soundcloud
+        .field
+          = f.label :mixcloud
+          = f.text_field :mixcloud
+
+    .field-group--submit
+      = f.submit 'Create Profile', class: "button"
