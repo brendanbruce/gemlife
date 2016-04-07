@@ -11,8 +11,11 @@
   %ul.navigation__right
     %li.navigation__item
       =link_to "Post an Event", new_event_path, class: "navigation__link"
-    %li.navigation__item
-      - if user_signed_in?
+    - if user_signed_in?
+      %li.navigation__item
+        = link_to "My Profile", edit_profile_path(current_user.profile.id), class: "navigation__link"
+      %li.navigation__item
         = link_to "Sign out", destroy_user_session_path, method: "delete", class: "navigation__link"
-      - else
+    - else
+      %li.navigation__item
         = link_to "Sign In", new_user_session_path, class: "navigation__link"
