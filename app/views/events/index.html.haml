@@ -2,6 +2,8 @@
   %header
     %h1 Events
 
-  %section
+  %section.flyer-grid
+    .flyer-gutter
+    .flyer-grid__sizer
     - @events.each do |event|
       = render partial: "event", locals: { event: event }
