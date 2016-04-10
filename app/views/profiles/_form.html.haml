@@ -19,6 +19,9 @@
         .field
           = f.label :bio
           = f.text_area :bio, placeholder: "Add your bio"
+        .field
+          = f.label :image
+          = f.file_field :image
 
     .field-group
       .field-group__header
@@ -41,4 +44,4 @@
           = f.text_field :mixcloud
 
     .field-group--submit
-      = f.submit 'Create Profile', class: "button"
+      = f.submit 'Save Profile', class: "button"

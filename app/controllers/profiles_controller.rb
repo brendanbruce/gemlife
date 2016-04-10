@@ -33,10 +33,24 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def update
+    @profile = Profile.find(params[:id])
+
+    respond_to do |format|
+      if @profile.update(profile_params)
+        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: @profile }
+      else
+        format.html { render :edit }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :website, :twitter, :facebook, :soundcloud, :mixcloud, :dj)
+    params.require(:profile).permit(:name, :bio, :website, :twitter, :facebook, :soundcloud, :mixcloud, :dj, :image)
   end
 
   def require_permission
