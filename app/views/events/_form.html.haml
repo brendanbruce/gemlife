@@ -32,6 +32,14 @@
 
     .field-group
       .field-group__header
+        %h3 What djs are playing this event?
+      .field-group__fields
+        .field
+          = f.label :profile
+          = f.select :profile_id, options_from_collection_for_select(Profile.all, :id, :name), { include_blank: true }, { multiple: true, class: "autocomplete" }
+
+    .field-group
+      .field-group__header
         %h3 Now give us the date and time
       .field-group__fields
         .field

@@ -2,6 +2,10 @@
 
 %main.main-container
   %header.outer-container
+    %img{ src: @profile.image.url }
     %h4
       = @profile.name
-    %img{ src: @profile.image.url }
+    .social-media
+      = render partial: "social", locals: { profile: @profile }
+    .bio
+      = @profile.bio

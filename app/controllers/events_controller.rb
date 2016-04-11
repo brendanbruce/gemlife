@@ -2,33 +2,31 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-  # GET /events
-  # GET /events.json
   def index
     @events = Event.all
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
   end
 
-  # GET /events/new
   def new
     @event = Event.new
   end
 
-  # GET /events/1/edit
   def edit
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @event = Event.new(event_params)
+    profile_info = event_params
 
     respond_to do |format|
       if @event.save
+        profile_ids = profile_info[:profile_id]
+        profile_ids.each do |i|
+          Gig.create(event_id: @event.id, profile_id: i)
+        end
+
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -38,8 +36,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
@@ -52,8 +48,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event.destroy
     respond_to do |format|
@@ -70,6 +64,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:start_date, :start_time, :end_date, :end_time, :description, :event_link, :title, :flyer, :venue_id, :tag_list)
+      params.require(:event).permit(:start_date, :start_time, :end_date, :end_time, :description, :event_link, :title, :flyer, :venue_id, :tag_list, :profile_id => [])
     end
 end
