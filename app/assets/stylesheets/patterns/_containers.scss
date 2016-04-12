@@ -18,6 +18,17 @@
   }
 }
 
+.full-width-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.full-width-container--dark {
+  @extend .full-width-container;
+  background-image: url("header_bg.png");
+  background-color: #5f2099;
+}
+
 .form-container--login {
   @extend .form-container;
   margin-top: 2em;

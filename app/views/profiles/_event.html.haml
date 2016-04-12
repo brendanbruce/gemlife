@@ -1,0 +1,26 @@
+.event
+  = event_flyer_image(event)
+  .event__info
+    .event__header
+      %h2.event__header__title
+        = link_to event.title, event
+      = render partial: "events/like", locals: { event: event }
+    .event__info__venue-name
+      = link_to event.venue_name, event.venue
+    .outer-container
+      .event__info__date
+        = fa_icon "calendar"
+        = format_date(event.start_date)
+      .event__info__time
+        = fa_icon "clock-o"
+        = format_time(event.start_time)
+    .event__info__link
+      = link_to "More Info", event.event_link, class: "button"
+    .event__likes
+      %h3
+        = event.likes_count
+        Likes
+      - event.users.each do |user|
+        = user.email
+    .tags
+      = render event.tags

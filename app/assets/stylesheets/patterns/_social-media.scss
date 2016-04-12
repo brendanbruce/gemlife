@@ -1,0 +1,16 @@
+.social-media {
+  margin: 1em 0;
+}
+
+.social-media__icon {
+  display: inline-block;
+  margin-right: 1em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  a {
+    color: white;
+  }
+}

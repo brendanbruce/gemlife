@@ -1,0 +1,52 @@
+.profile {
+  @include outer-container();
+  color: white;
+  padding: 2em 0;
+  position: relative;
+}
+
+.profile__header {
+  line-height: 1;
+}
+
+.profile__image {
+  @include span-columns(4);
+  overflow: hidden;
+
+  img {
+    border-radius: $base-border-radius;
+    box-shadow: $card-shadow;
+    height: auto;
+    padding-right: 2em;
+    width: 100%;
+  }
+}
+
+.profile__info {
+  @include span-columns(7);
+}
+
+.profile__links {
+  @include span-columns(1);
+}
+
+.profile__stat__row {
+  background-color: #2A0843;
+  border-bottom: 2px solid darken(#2A0843, 10%);
+  border-top: 1px solid darken(#2A0843, 10%);
+  padding: 1em 0;
+}
+
+.profile__stat {
+  @include span_columns(3);
+  color: white;
+
+  h5 {
+    font-weight: normal;
+    opacity: 0.5;
+  }
+
+  h5, h3 {
+    margin: 0;
+  }
+}

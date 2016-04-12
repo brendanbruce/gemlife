@@ -1,13 +1,7 @@
-%h4
-  Social Media
-%ul
-  %li
-    = link_to "Website", profile.website
-  %li
-    = link_to "Twitter", profile.twitter
-  %li
-    = link_to "Soundcloud", profile.soundcloud
-  %li
-    = link_to "Mixcloud", profile.mixcloud
-  %li
-    = link_to "Facebook", profile.facebook
+%h3
+  %ul.social-media
+    - profile.social_array.each do |i|
+      - if i.present?
+        %li.social-media__icon
+          = link_to(i[0]) do
+            = fa_icon i[1]
