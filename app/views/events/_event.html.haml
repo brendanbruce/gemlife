@@ -24,6 +24,10 @@
         = user.email
     .tags
       = render event.tags
+    .djs
+      %h3 DJs
+      - event.profiles.each do |profile|
+        = profile.name
   .event__edit-options
     - if user_signed_in?
       = link_to 'Edit', edit_event_path(event)

@@ -9,3 +9,9 @@
       = render partial: "social", locals: { profile: @profile }
     .bio
       = @profile.bio
+    %h3
+      Upcoming gigs for #{ @profile.name }
+    - @profile.events.each do |event|
+      = event_flyer_image(event)
+      %h2.event__header__title
+        = link_to event.title, event
