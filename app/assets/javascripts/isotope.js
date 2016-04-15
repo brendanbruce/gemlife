@@ -1,13 +1,13 @@
 $(document).ready( function() {
   // init Isotope after all images have loaded
-  var $grid = $('.flyer-grid').imagesLoaded( function() {
+  var $grid = $("[data-js='isotope-grid']").imagesLoaded( function() {
     $grid.isotope({
-      itemSelector: '.flyer-grid__flyer',
+      itemSelector: "[data-js='isotope-grid-item']",
       layoutMode: 'masonry',
       percentPosition: true,
       masonry: {
-        columnWidth: ".flyer-grid__sizer",
-        gutter: ".flyer-gutter"
+        columnWidth: ".js-isotope__column-size",
+        gutter: ".js-isotope__gutter-size"
       }
     });
   });

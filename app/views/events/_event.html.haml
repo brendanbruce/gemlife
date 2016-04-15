@@ -1,6 +1,21 @@
-.flyer-grid__flyer
-  = event_flyer_image(event)
-  .flyer-grid__overlay
-    = render partial: "events/like", locals: { event: event }
-    %h3.flyer-grid__title
+.c-image-card{ data: { js: "isotope-grid-item" } }
+  .u-position-relative
+    = event_flyer_image(event)
+    .c-image-card__overlay
+      = render partial: "events/like", locals: { event: event }
+  .c-image-card__information
+    %h4.c-image-card__venue
+      = link_to event.venue_name, event.venue
+    %h3.c-image-card__title
       = link_to event.title, event
+    - if event.profiles.any?
+      %h4.c-image-card__secondary
+        - event.profiles.each do |profile|
+          = profile.name
+    .clearfix
+      .c-image-card__date
+        = fa_icon "calendar"
+        = format_date(event.start_date)
+      .c-image-card__time
+        = fa_icon "clock-o"
+        = format_time(event.start_time)

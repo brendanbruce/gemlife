@@ -1,0 +1,57 @@
+.c-image-card {
+  background-color: white;
+  border-radius: $base-border-radius;
+  box-shadow: $card-shadow;
+  margin-bottom: 18px;
+  padding: 0;
+  width: 32%;
+}
+
+.c-image-card__date,
+.c-image-card__time {
+  color: gray;
+  font-size: 0.825rem;
+  float: left;
+}
+
+.c-image-card__image {
+  line-height: 0;
+  position: relative;
+  z-index: 0;
+}
+
+.c-image-card__information {
+  background-color: white;
+  padding: 1em;
+  position: relative;
+}
+
+.c-image-card__overlay {
+  @include position(absolute, 0 null null 0);
+  @include size(100%);
+
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.c-image-card__secondary {
+  font-size: 1rem;
+  margin-bottom: 0.75em;
+}
+
+.c-image-card__time {
+  margin-left: 1em;
+}
+
+.c-image-card__title {
+  font-size: 1.5rem;
+  letter-spacing: -0.1px;
+  line-height: 1;
+  margin-bottom: 0.75em;
+}
+
+.c-image-card__venue {
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 0.25em;
+}

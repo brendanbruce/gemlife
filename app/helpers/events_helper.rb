@@ -1,7 +1,7 @@
 module EventsHelper
-  def event_flyer_image(event)
+  def event_flyer_image(event, image_selector: "c-image-card__image")
     if event.flyer_file_name.present?
-      content_tag(:div, image_tag(event.flyer.url), class: "flyer")
+      content_tag(:div, image_tag(event.flyer.url), class: image_selector)
     end
   end
 

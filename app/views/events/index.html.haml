@@ -2,8 +2,8 @@
   %header
     %h1 Events
 
-  %section.flyer-grid
-    .flyer-gutter
-    .flyer-grid__sizer
+  %section.outer-container{ data: { js: "isotope-grid" } }
+    .js-isotope__gutter-size
+    .js-isotope__column-size
     - @events.each do |event|
       = render partial: "event", locals: { event: event }
