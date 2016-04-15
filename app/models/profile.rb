@@ -12,12 +12,4 @@ class Profile < ActiveRecord::Base
                    "image/jpeg",
                    "image/png",
                    "image/gif"] }
-
-  def social_array
-    Array([[website, "globe"],
-           [twitter, "twitter"],
-           [facebook, "facebook"],
-           [soundcloud, "soundcloud"],
-           [mixcloud, "mixcloud"]])
-  end
 end
