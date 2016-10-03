@@ -1,7 +1,21 @@
 %main.outer-container.main-container
-  %header
-    %h1 Events
-
+  %section.sidebar
+    %h3
+      Days
+    %ul.sidebar__list
+      %li
+        %a
+          Monday
+      %li
+        %a
+          Tuesday
+      %li
+        %a
+          Wednesday
   %section
-    - @events.each do |event|
-      = render partial: "event", locals: { event: event }
+    %header
+      %h1 Events
+
+    %section
+      - @events.each do |event|
+        = render partial: "event", locals: { event: event }
