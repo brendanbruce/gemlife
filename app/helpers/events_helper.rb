@@ -1,4 +1,12 @@
 module EventsHelper
+  def current_date
+    Date.today
+  end
+
+  def current_day
+    current_date.strftime("%A")
+  end
+
   def event_flyer_image(event)
     if event.flyer_file_name.present?
       content_tag(:div, image_tag(event.flyer.url), class: "event__image")

@@ -5,10 +5,10 @@
     %ul.sidebar__list
       %li
         %a
-          Monday
+          = link_to "Parties Tonight", find_by: "today"
       %li
         %a
-          Tuesday
+          = link_to "Parties Tomorrow", find_by: "tomorrow"
       %li
         %a
           Wednesday
