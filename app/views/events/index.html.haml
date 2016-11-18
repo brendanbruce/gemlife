@@ -1,29 +1,20 @@
-%main.outer-container.main-container
-  %section.sidebar
-    %h3
-      Days
-    %ul.sidebar__list
-      - days_list.each do |day|
-        %li
-          %a
-            = link_to day, find_by: "today"
-      %li
-        %a
-          = link_to "Parties Tonight", find_by: "today"
-      %li
-        %a
-          = link_to "Parties Tomorrow", find_by: "tomorrow"
-      %li
-        %a
-          Wednesday
-  %section
-    %header
-      %h1 Events
+%main.main-container
+  .full-width-container
+    %section.sidebar
+      %h3
+        Days
+      %ul.sidebar__list
+        - days_list.each do |day|
+          %li
+            = link_to day.strftime("%A"), find_by: day
+    %section.sidebar-main
+      %header
+        %h1 Events
 
-    %section
-      - if @events.length > 0
-        - @events.each do |event|
-          = render partial: "event", locals: { event: event }
-      - else
-        %h1
-          No events today :(
+      %section
+        - if @events.length > 0
+          - @events.each do |event|
+            = render partial: "event", locals: { event: event }
+        - else
+          %h1
+            No events today :(

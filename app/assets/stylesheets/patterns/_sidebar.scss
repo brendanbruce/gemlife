@@ -1,0 +1,20 @@
+.sidebar {
+  @include span-columns(2);
+  border-right: 1px solid black;
+}
+
+.sidebar__list li a {
+  @include transition(all 0.25s ease-out);
+  border-top: 1px dotted black;
+  display: block;
+  padding: 1em;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
+.sidebar-main {
+  @include span-columns(10);
+}

@@ -8,11 +8,11 @@ module EventsHelper
   end
 
   def days_list
-    days_array = [current_day]
+    days_array = [current_date]
 
     for i in 1..6
-      day = (current_date + i.days).strftime("%A")
-      days_array.push(day)
+      date = current_date + i.days
+      days_array.push(date)
     end
 
     days_array
