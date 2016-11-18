@@ -3,6 +3,10 @@
     %h3
       Days
     %ul.sidebar__list
+      - days_list.each do |day|
+        %li
+          %a
+            = link_to day, find_by: "today"
       %li
         %a
           = link_to "Parties Tonight", find_by: "today"

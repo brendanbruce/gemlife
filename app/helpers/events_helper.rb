@@ -7,6 +7,17 @@ module EventsHelper
     current_date.strftime("%A")
   end
 
+  def days_list
+    days_array = [current_day]
+
+    for i in 1..6
+      day = (current_date + i.days).strftime("%A")
+      days_array.push(day)
+    end
+
+    days_array
+  end
+
   def event_flyer_image(event)
     if event.flyer_file_name.present?
       content_tag(:div, image_tag(event.flyer.url), class: "event__image")
