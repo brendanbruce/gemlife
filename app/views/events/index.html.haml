@@ -21,5 +21,9 @@
       %h1 Events
 
     %section
-      - @events.each do |event|
-        = render partial: "event", locals: { event: event }
+      - if @events.length > 0
+        - @events.each do |event|
+          = render partial: "event", locals: { event: event }
+      - else
+        %h1
+          No events today :(
