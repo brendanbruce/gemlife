@@ -11,6 +11,10 @@ class EventsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.json { render json: @event }
+    end
+
   end
 
   def new

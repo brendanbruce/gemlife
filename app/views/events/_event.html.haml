@@ -3,7 +3,7 @@
   .event__info
     .event__header
       %h2.event__header__title
-        = link_to event.title, event
+        = link_to event.title, event, id: "linkTrigger", remote: true
       = render partial: "events/like", locals: { event: event }
     .event__info__venue-name
       = link_to event.venue_name, event.venue
