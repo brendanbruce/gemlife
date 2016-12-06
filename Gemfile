@@ -32,6 +32,7 @@ group :development, :test do
   gem "fuubar"
   gem 'pry-rails'
   gem "rspec-rails", "~> 3.5"
+  gem 'shoulda-matchers'
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
