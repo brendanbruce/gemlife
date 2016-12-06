@@ -1,15 +1,15 @@
 %main.main-container
-  .full-width-container
+  .outer-container
     %section.sidebar
-      %h3
+      %h4
         Days
       %ul.sidebar__list
         - days_list.each do |day|
           %li
             = link_to day.strftime("%A"), find_by: day
     %section.sidebar-main
-      %header
-        %h1 Events
+      %h4
+        12 Events Today
 
       %section
         - if @events.length > 0

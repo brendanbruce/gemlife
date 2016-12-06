@@ -2,6 +2,53 @@
   @include outer-container;
   background-color: white;
   border-bottom: 1px $light-gray solid;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  &:first-child {
+    padding-top: 0em;
+  }
+}
+
+.event__actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.event__actions__element {
+  padding: 0 0.25em;
+  width: 100%;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.event__djs {
+  margin-bottom: 1em;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    display: inline;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li a {
+    color: $medium-gray;
+  }
 }
 
 .event__edit-options {
@@ -9,11 +56,6 @@
 }
 
 .event__header {
-  margin-bottom: 1em;
-
-  h1 {
-    font-weight: 300;
-  }
 }
 
 .event__header__like {
@@ -40,24 +82,14 @@
 }
 
 .event__header__title {
-  @include span-columns(9 of 9);
-  font-size: 2em;
-  font-weight: 300;
-  margin-bottom: 1.25rem;
-
-  @include media($medium-screen) {
-    @include span-columns(6 of 9);
-  }
+  margin-bottom: 0rem;
 
   a {
-    color: #2f63b7;
+    color: $base-font-color;
     display: inline-block;
-    border-bottom: #D6E5F9 3px solid;
-    padding-bottom: 0.5rem;
   }
 
   a:hover {
-    border-bottom: #698CB7 3px solid;
   }
 }
 
@@ -67,6 +99,7 @@
 
   @include media($medium-screen) {
     @include span-columns(4);
+    @include omega();
   }
 
 }
@@ -77,28 +110,22 @@
 
 .event__info {
   @include span-columns(12);
-}
-
-.event__image + .event__info {
-  @include span-columns(12);
-  margin-top: 1em;
 
   @include media($medium-screen) {
     @include span-columns(8);
-    @include omega();
     margin-top: 0;
-    padding-left: 1em;
   }
 }
 
-.event__info__date,
-.event__info__time {
-  color: gray;
+.event__info__detail {
+  color: $medium-gray;
+  font-size: 0.825;
   float: left;
-}
-
-.event__info__time {
   margin-left: 1em;
+
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
 .event__info__link {
@@ -108,4 +135,8 @@
 
 .event__info__venue-name {
   clear: both;
+
+  a {
+    color: $medium-gray;
+  }
 }

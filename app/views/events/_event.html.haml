@@ -1,33 +1,45 @@
 .event
-  = event_flyer_image(event)
   .event__info
     .event__header
       %h2.event__header__title
-        = link_to event.title, event, id: "linkTrigger", remote: true
+        = link_to event.title, event
       = render partial: "events/like", locals: { event: event }
-    .event__info__venue-name
-      = link_to event.venue_name, event.venue
-    .outer-container
-      .event__info__date
-        = fa_icon "calendar"
-        = format_date(event.start_date)
-      .event__info__time
-        = fa_icon "clock-o"
-        = format_time(event.start_time)
-    .event__info__link
-      = link_to "More Info", event.event_link, class: "button"
-    .event__likes
-      %h3
-        = event.likes_count
-        Likes
-      - event.users.each do |user|
-        = user.email
-    .tags
-      = render event.tags
-    .djs
-      %h3 DJs
+    .event__djs
+      %ul
+        %li
+          =link_to "DJ Brendan", "DJ Brendan"
+        %li
+          =link_to "Burt Simpson", "DJ Brendan"
+        %li
+          =link_to "Stefonix", "DJ Brendan"
       - event.profiles.each do |profile|
         = profile.name
+    .event__actions
+      .event__actions__element
+        .button
+          = "Like #{event.likes_count}"
+      .event__actions__element
+        .button
+          = "Tickets"
+      .event__actions__element
+        .button
+          = "Calendar"
+      .event__actions__element
+        .button
+          = "Tickets"
+    .outer-container
+      .event__info__detail
+        = fa_icon "calendar"
+        = link_to event.venue_name, event.venue
+      .event__info__detail
+        = fa_icon "calendar"
+        = format_date(event.start_date)
+      .event__info__detail
+        = fa_icon "clock-o"
+        = format_time(event.start_time)
+    .tags
+      = render event.tags
+  = event_flyer_image(event)
   .event__edit-options
     - if user_signed_in?
       = link_to 'Edit', edit_event_path(event)
