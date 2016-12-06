@@ -1,5 +1,5 @@
 class Remove < ActiveRecord::Migration
   def change
-    remove_column :profiles, :users_id
+    remove_column :profiles, :user_id
   end
 end
