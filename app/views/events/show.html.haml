@@ -22,8 +22,9 @@
               = format_time(@event.start_time)
           .event__info__description
             = @event.description
-          .event__info__link
-            = link_to "More Info", @event.event_link, class: "button"
+          - if @event.event_link
+            .event__info__link
+              = link_to "More Info", @event.event_link, class: "button"
           .event__info__tags
             = render @event.tags
           .djs
