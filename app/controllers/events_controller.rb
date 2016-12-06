@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def show
     respond_to do |format|
+      format.html
       format.json { render json: @event }
     end
 

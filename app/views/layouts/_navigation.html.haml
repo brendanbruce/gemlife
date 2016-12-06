@@ -1,24 +1,25 @@
 %nav.navigation
-  .logo
-    Gemlife
-  %ul.navigation__left
-    %li.navigation__item
-      = link_to "All Events", events_path, class: "navigation__link"
-    %li.navigation__item
-      = link_to "My Events", likes_path, class: "navigation__link"
-    %li.navigation__item
-      = link_to "Venues", venues_path, class: "navigation__link"
-  %ul.navigation__right
-    %li.navigation__item
-      =link_to "Post an Event", new_event_path, class: "navigation__link"
-    - if user_signed_in?
+  .outer-container
+    .logo
+      Gemlife
+    %ul.navigation__left
       %li.navigation__item
-        - if current_user.profile
-          = link_to "My Profile", edit_profile_path(current_user.profile.id), class: "navigation__link"
-        - else
-          = link_to "My Profile", new_profile_path, class: "navigation__link"
+        = link_to "All Events", events_path, class: "navigation__link"
       %li.navigation__item
-        = link_to "Sign out", destroy_user_session_path, method: "delete", class: "navigation__link"
-    - else
+        = link_to "My Events", likes_path, class: "navigation__link"
       %li.navigation__item
-        = link_to "Sign In", new_user_session_path, class: "navigation__link"
+        = link_to "Venues", venues_path, class: "navigation__link"
+    %ul.navigation__right
+      %li.navigation__item
+        =link_to "Post an Event", new_event_path, class: "navigation__link"
+      - if user_signed_in?
+        %li.navigation__item
+          - if current_user.profile
+            = link_to "My Profile", edit_profile_path(current_user.profile.id), class: "navigation__link"
+          - else
+            = link_to "My Profile", new_profile_path, class: "navigation__link"
+        %li.navigation__item
+          = link_to "Sign out", destroy_user_session_path, method: "delete", class: "navigation__link"
+      - else
+        %li.navigation__item
+          = link_to "Sign In", new_user_session_path, class: "navigation__link"
