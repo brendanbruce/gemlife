@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
   has_attached_file :flyer, styles: {
     preview: "640x640"
   }
+
   validates_attachment :flyer, content_type: {
     content_type: ["image/jpg",
                    "image/jpeg",
