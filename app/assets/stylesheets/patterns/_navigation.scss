@@ -1,10 +1,9 @@
 .navigation {
   @include row();
-  background-color: white;
+  background-color: black;
   border-bottom: 1px $light-gray solid;
   border-top: 1px $light-gray solid;
   position: relative;
-  text-transform: uppercase;
 }
 
 .navigation__frame {
@@ -13,27 +12,30 @@
 
 .navigation__left {
   float: left;
+  height: 100%;
+  margin-left: 1rem;
 }
 
 .navigation__item {
-  border-right: 1px $light-gray solid;
   display: block;
   float: left;
+  height: 100%;
 }
 
 .navigation__link {
-  background-color: white;
-  color: $medium-gray;
+  background-color: black;
+  border-bottom: black 3px solid;
+  color: $header-nav-color;
   display: block;
-  font-weight: 700;
-  padding: 1em;
+  font-size: 1em;
+  height: 100%;
+  padding: 0.875rem 1rem;
 
   &:hover {
-    background-color: lighten($light-gray, 5%);
+    border-bottom: $action-color 3px solid;
   }
 }
 
 .navigation__right {
-  border-left: 1px $light-gray solid;
   float: right;
 }
