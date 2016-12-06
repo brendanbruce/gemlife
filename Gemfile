@@ -30,7 +30,7 @@ group :development, :test do
   gem 'byebug'
   gem "dotenv-rails"
   gem 'pry-rails'
-  gem "rspec-rails", "~> 3.0"
+  gem "rspec-rails", "~> 3.5"
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
