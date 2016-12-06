@@ -29,6 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug'
   gem "dotenv-rails"
+  gem "fuubar"
   gem 'pry-rails'
   gem "rspec-rails", "~> 3.5"
   gem 'spring'
