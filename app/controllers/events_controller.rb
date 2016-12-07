@@ -31,9 +31,11 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        profile_ids = profile_info[:profile_id]
-        profile_ids.each do |i|
-          Gig.create(event_id: @event.id, profile_id: i)
+        if profile_info[:profile_id]
+          profile_ids = profile_info[:profile_id]
+          profile_ids.each do |i|
+            Gig.create(event_id: @event.id, profile_id: i)
+          end
         end
 
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
