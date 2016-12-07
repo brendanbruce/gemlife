@@ -2,22 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "events/show", type: :view do
   before(:each) do
-    @profile = assign(:profile, Profile.create!(
-      :name => "DJ Brendan"
-    ))
+    @venue = create(:venue, name: "Trophy")
+    @event = assign(:event, create(:event, title: "MyTitle", description: "EventDescription", venue_id: @venue.id))
 
-    @venue = assign(:venue, Venue.create!(
-      :name => "Trophy"
-    ))
+    profile = create(:profile, name: "DJ Brendan")
+    gig = assign(:gig, create(:gig, event_id: @event.id, profile_id: profile.id))
 
-    @event = assign(:event, Event.create!(
-      :title => "MyTitle",
-      :description => "EventDescription",
-      :start_date => Date.today,
-      :start_time => Time.now,
-      :venue_id => @venue.id,
-      :profile => @profile.name
-    ))
   end
 
   it "renders attributes" do

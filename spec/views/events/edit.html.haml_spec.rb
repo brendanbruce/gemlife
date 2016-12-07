@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "events/edit", type: :view do
   before(:each) do
-    @event = assign(:event, Event.create!(
-      :description => "MyText",
-      :event_link => "MyString"
-    ))
+    @event = assign(:event, create(:event, title: "MyText", event_link: "Event Link"))
   end
 
   it "renders the edit event form" do
