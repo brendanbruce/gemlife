@@ -13,6 +13,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe "assocations" do
+    it { should belong_to(:user) }
     it { should belong_to(:venue) }
     it { should accept_nested_attributes_for(:venue) }
     it { should have_many(:gigs) }

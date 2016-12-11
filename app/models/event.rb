@@ -15,6 +15,8 @@ class Event < ActiveRecord::Base
                    "image/png",
                    "image/gif"] }
 
+  belongs_to :user, class_name: "User", foreign_key: "user_id"
+
   belongs_to :venue
   accepts_nested_attributes_for :venue
 

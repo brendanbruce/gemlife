@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(event_params.merge(user_id: current_user.id))
     profile_info = event_params
 
     respond_to do |format|
@@ -75,6 +75,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:start_date, :start_time, :end_date, :end_time, :description, :event_link, :title, :flyer, :venue_id, :tag_list, :profile_id => [])
+      params.require(:event).permit(:start_date, :start_time, :end_date, :end_time, :description, :event_link, :title, :flyer, :venue_id, :tag_list, :user_id, :profile_id => [])
     end
 end

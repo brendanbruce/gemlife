@@ -47,4 +47,8 @@ module EventsHelper
       "No Time specified"
     end
   end
+
+  def user_owns_event?(event)
+    event.user_id == current_user.id
+  end
 end
