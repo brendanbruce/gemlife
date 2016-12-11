@@ -11,5 +11,25 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EventsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#current_date" do
+    it "should return the current date" do
+      date = current_date
+      today = Date.today
+      expect(date).to eq today
+    end
+  end
+
+  describe "#current_day" do
+    it "should return given date as a day" do
+      today = current_date.strftime("%A")
+      expect(today).to eq current_day
+    end
+  end
+
+  describe "#event_flyer_image" do
+    it "should return nil if no flyer is present" do
+      event = build(:event)
+      expect(event.flyer.url).to be nil
+    end
+  end
 end

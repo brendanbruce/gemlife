@@ -24,11 +24,7 @@ RSpec.describe EventsController, type: :controller do
   # Event. As you add validations to Event, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { attributes_for(:event) }
-
-
-  let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:event, title: nil)
-  }
+  let(:invalid_attributes) { attributes_for(:event, title: nil) }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -44,7 +40,6 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe "GET #show" do
-    login_user
     it "assigns the requested event as @event" do
       event = Event.create! valid_attributes
       get :show, {:id => event.to_param}
@@ -53,24 +48,42 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe "GET #new" do
-    login_user
-    it "assigns a new event as @event" do
-      get :new, {}
-      expect(assigns(:event)).to be_a_new(Event)
+    context "user is logged in" do
+      login_user
+      it "assigns a new event as @event" do
+        get :new, {}
+        expect(assigns(:event)).to be_a_new(Event)
+      end
+
+      it "renders the :new template" do
+        get :new
+        expect(response).to render_template :new
+      end
     end
 
-    it "renders the :new template" do
-      get :new
-      expect(response).to render_template :new
+    context "user is not logged in" do
+      it "redirects to login page" do
+        get :new
+        expect(response).to redirect_to(:new_user_session)
+      end
     end
   end
 
   describe "GET #edit" do
-    login_user
-    it "assigns the requested event as @event" do
-      event = Event.create! valid_attributes
-      get :edit, {:id => event.to_param}
-      expect(assigns(:event)).to eq(event)
+    context "user is logged in" do
+      login_user
+      it "assigns the requested event as @event" do
+        event = Event.create! valid_attributes
+        get :edit, {:id => event.to_param}
+        expect(assigns(:event)).to eq(event)
+      end
+    end
+
+    context "user is not logged in" do
+      it "redirects to login page" do
+        get :new
+        expect(response).to redirect_to(:new_user_session)
+      end
     end
   end
 
@@ -119,7 +132,7 @@ RSpec.describe EventsController, type: :controller do
         event = Event.create! valid_attributes
         put :update, {:id => event.to_param, :event => new_attributes}
         event.reload
-        skip("Add assertions for updated state")
+        expect(event.title).to eq "New title"
       end
 
       it "assigns the requested event as @event" do
