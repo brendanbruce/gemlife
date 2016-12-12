@@ -97,6 +97,7 @@ GEM
       sass-rails (< 5.1)
       sprockets (< 4.0)
     crass (1.0.2)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -301,6 +302,7 @@ DEPENDENCIES
   capybara
   chosen-rails
   coffee-rails (~> 4.1.0)
+  database_cleaner
   devise
   dotenv-rails
   factory_girl_rails
