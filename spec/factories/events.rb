@@ -6,5 +6,7 @@ FactoryGirl.define do
     f.description { Faker::Hipster.sentence }
     f.start_date Date.tomorrow
     f.start_time Time.now + (2*7*24*60*60)
+    user
+    venue
   end
 end

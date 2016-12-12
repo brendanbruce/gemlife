@@ -23,8 +23,8 @@ RSpec.describe EventsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Event. As you add validations to Event, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for(:event) }
-  let(:invalid_attributes) { attributes_for(:event, title: nil) }
+  let(:valid_attributes) { build(:event).attributes.symbolize_keys }
+  let(:invalid_attributes) { build(:event, title: nil).attributes.symbolize_keys }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -90,8 +90,6 @@ RSpec.describe EventsController, type: :controller do
   describe "POST #create" do
     login_user
     context "with valid params" do
-      let(:valid_attributes) { attributes_for(:event) }
-
       it "creates a new Event" do
         expect {
           post :create, {:event => valid_attributes}

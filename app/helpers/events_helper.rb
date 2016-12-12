@@ -32,6 +32,12 @@ module EventsHelper
     end
   end
 
+  def event_venue(event)
+    if event.venue
+      event.venue.id
+    end
+  end
+
   def format_date(start_date)
     if start_date.present?
       start_date.strftime("%A, %B %-d")
