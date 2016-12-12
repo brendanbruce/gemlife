@@ -28,6 +28,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
   gem "dotenv-rails"
   gem 'factory_girl_rails'
   gem "faker"
