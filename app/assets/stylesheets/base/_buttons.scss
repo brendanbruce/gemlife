@@ -1,5 +1,30 @@
 #{$all-button-inputs},
-button {
+button,
+.button {
+  background-color: white;
+  border: 1px solid $base-border-color;
+  border-radius: 4px;
+  color: $medium-gray;
+  font-size: 1em;
+  line-height: normal;
+  padding: 0.5em 0.75em;
+  text-align: center;
+
+  &:hover {
+    border: 1px solid $action-color;
+    color: $action-color;
+  }
+
+  &:active {
+  }
+}
+
+.button--expand {
+  width: 100%;
+}
+
+input[type="submit"].button--primary,
+.button--primary {
   @include appearance(none);
   -webkit-font-smoothing: antialiased;
   background-color: $action-color;

@@ -3,7 +3,6 @@
     .event__header
       %h2.event__header__title
         = link_to event.title, event
-      = render partial: "events/like", locals: { event: event }
     .event__djs
       %ul
         - event.profiles.each do |profile|
@@ -11,8 +10,7 @@
             = link_to profile.name, profile
     .event__actions
       .event__actions__element
-        .button
-          = "Like #{event.likes_count}"
+        = render partial: "events/like", locals: { event: event }
       .event__actions__element
         .button
           = "Tickets"

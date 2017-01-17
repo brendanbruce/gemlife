@@ -58,29 +58,6 @@
 .event__header {
 }
 
-.event__header__like {
-  @include span-columns(9 of 9);
-  color: $light-gray;
-  font-size: 1.5em;
-  width: 100%;
-
-  @include media($medium-screen) {
-    @include span-columns(3 of 9);
-    float: right;
-    margin-right: 0;
-    text-align: right;
-    width: auto;
-  }
-}
-
-.event__like__button {
-  width: 100%;
-
-  @include media($medium-screen) {
-    width: auto;
-  }
-}
-
 .event__header__title {
   margin-bottom: 0rem;
 

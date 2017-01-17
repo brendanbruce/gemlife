@@ -1,4 +1,8 @@
 module EventsHelper
+  def button_like
+    fa_icon("check").html_safe + " Going"
+  end
+
   def current_date
     Date.today
   end
