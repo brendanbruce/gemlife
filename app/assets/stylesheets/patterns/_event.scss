@@ -2,14 +2,17 @@
   @include outer-container;
   background-color: white;
   border-bottom: 1px $light-gray solid;
-  margin-bottom: 1em;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 .event__actions {
+  @include span-columns(8 of 8);
+  @include omega();
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1em;
-  width: 100%;
+  margin: 1em 0;
+  padding-right: 1rem;
 }
 
 .event__actions__element {
@@ -25,7 +28,14 @@
   }
 }
 
+.event__description {
+  font-size: 0.825rem;
+  padding-right: 3rem;
+}
+
 .event__djs {
+  @include span-columns(3 of 8);
+
   margin-bottom: 1em;
 
   ul {
@@ -36,6 +46,7 @@
   ul li {
     font-size: 1.25rem;
     font-weight: 600;
+    line-height: 1.2;
     margin: 0;
     padding: 0;
     text-transform: uppercase;
@@ -47,7 +58,15 @@
 }
 
 .event__edit-options {
-  clear: both;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: $blue;
+  padding: 0.5rem 1rem;
+
+  a {
+    color: white;
+  }
 }
 
 .event__header {
@@ -106,12 +125,6 @@
 .event__info__detail {
   color: $medium-gray;
   font-size: 0.825;
-  float: left;
-  margin-left: 1em;
-
-  &:first-child {
-    margin-left: 0;
-  }
 }
 
 .event__info__link {
@@ -124,5 +137,22 @@
 
   a {
     color: $medium-gray;
+  }
+}
+
+.event__venue {
+  @include span-columns(12);
+
+  @include media($medium-screen) {
+    @include span-columns(3 of 8);
+  }
+}
+
+.event__date {
+  @include span-columns(12);
+
+  @include media($medium-screen) {
+    @include span-columns(2 of 8);
+    @include omega();
   }
 }

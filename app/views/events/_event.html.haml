@@ -1,15 +1,33 @@
 .event
   = event_flyer_image(event)
   .event__info
+
     .event__header
       %h2.event__header__title
         = link_to event.title, event
+
     .event__djs
-      DJs
+      %h5
+        DJs
       %ul
         - event.profiles.each do |profile|
           %li
             = link_to profile.name, profile
+    .event__venue
+      %h5
+        = fa_icon "map-marker"
+        Location
+      .event__info__detail
+        = link_to event.venue_name, event.venue
+    .event__date
+      %h5
+        = fa_icon "calendar"
+        Date and Time
+      .event__info__detail
+        = format_date(event.start_date)
+      .event__info__detail
+        = format_time(event.start_time)
+
     .event__actions
       .event__actions__element
         = render partial: "events/like", locals: { event: event }
@@ -19,21 +37,19 @@
       .event__actions__element
         .button
           = "Calendar"
-      .event__actions__element
-        .button
-          = "Tickets"
-    .outer-container
-      .event__info__detail
-        = fa_icon "calendar"
-        = link_to event.venue_name, event.venue
-      .event__info__detail
-        = fa_icon "calendar"
-        = format_date(event.start_date)
-      .event__info__detail
-        = fa_icon "clock-o"
-        = format_time(event.start_time)
+
+    .event__description
+      %p
+        = event.description
+    .event__attendees
+      = event.likes_count
+      Going
+
     .tags
+      %h5
+        Genres
       = render event.tags
-  .event__edit-options
     - if user_signed_in? && user_owns_event?(event)
-      = link_to 'Edit (created by you)', edit_event_path(event)
+      .event__edit-options
+        = link_to 'Edit', edit_event_path(event)
+        = link_to 'Remove', edit_event_path(event)
