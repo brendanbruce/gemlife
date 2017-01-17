@@ -1,20 +1,23 @@
 %main.main-container
   .outer-container
-    %section.sidebar
-      %h4
-        Days
-      %ul.sidebar__list
-        - days_list.each do |day|
-          %li
-            = link_to day.strftime("%A"), find_by: day
-    %section.sidebar-main
-      %h4
-        12 Events Today
-
-      %section
-        - if @events.length > 0
-          - @events.each do |event|
-            = render partial: "event", locals: { event: event }
-        - else
-          %h1
-            No events today :(
+    %span Here's what's going on
+    %select
+      %option{value: "tonight"} Tonight
+      %option{value: "tonight"}
+      %option{value: "tonight"}
+      %option{value: "tonight"}
+      %option{value: "tonight"}
+      %option{value: "tonight"}
+      %option{value: "tonight"}
+    %span :
+    %ul.sidebar__list
+      - days_list.each do |day|
+        %li
+          = link_to day.strftime("%A"), find_by: day
+    %section
+      - if @events.length > 0
+        - @events.each do |event|
+          = render partial: "event", locals: { event: event }
+      - else
+        %h1
+          No events today :(

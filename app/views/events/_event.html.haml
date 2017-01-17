@@ -1,9 +1,11 @@
 .event
+  = event_flyer_image(event)
   .event__info
     .event__header
       %h2.event__header__title
         = link_to event.title, event
     .event__djs
+      DJs
       %ul
         - event.profiles.each do |profile|
           %li
@@ -32,7 +34,6 @@
         = format_time(event.start_time)
     .tags
       = render event.tags
-  = event_flyer_image(event)
   .event__edit-options
     - if user_signed_in? && user_owns_event?(event)
       = link_to 'Edit (created by you)', edit_event_path(event)

@@ -48,8 +48,17 @@ class EventsController < ApplicationController
   end
 
   def update
+    profile_info = event_params
+
     respond_to do |format|
       if @event.update(event_params)
+        if profile_info[:profile_id]
+          profile_ids = profile_info[:profile_id]
+          profile_ids.each do |i|
+            Gig.create(event_id: @event.id, profile_id: i)
+          end
+        end
+
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
