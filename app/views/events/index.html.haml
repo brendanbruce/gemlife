@@ -2,19 +2,8 @@
   .outer-container
     .event-list__intro
       %span Here's what's going on
-      %select
-        %option{value: "tonight"} Tonight
-        %option{value: "tonight"}
-        %option{value: "tonight"}
-        %option{value: "tonight"}
-        %option{value: "tonight"}
-        %option{value: "tonight"}
-        %option{value: "tonight"}
-      %span :
-      %ul.sidebar__list
-        - days_list.each do |day|
-          %li
-            = link_to day.strftime("%A"), find_by: day
+      %select#daySelector
+        = options_for_select(days_list, params[:find_by])
     %section
       - if @events.length > 0
         - @events.each do |event|

@@ -2,17 +2,21 @@
   @include outer-container;
   background-color: white;
   border-bottom: 1px $light-gray solid;
-  margin-bottom: 2rem;
+  padding: 0;
+  margin-bottom: 1.5rem;
   position: relative;
+
+  @include media($medium-screen) {
+    padding: 1.5rem;
+  }
 }
 
 .event__actions {
-  @include span-columns(8 of 8);
+  @include span-columns(9 of 9);
   @include omega();
   display: flex;
   justify-content: space-between;
   margin: 1em 0;
-  padding-right: 1rem;
 }
 
 .event__actions__element {
@@ -20,23 +24,44 @@
   width: 100%;
 
   &:first-child {
-    margin-left: 0;
+    padding-left: 0;
   }
 
   &:last-child {
-    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
+.event__attendees {
+  clear: both;
+
+  span {
+    background-color: black;
+    border-radius: 16px;
+    color: white;
+    display: inline-block;
+    margin-right: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    text-align: center;
   }
 }
 
 .event__description {
+  clear: both;
   font-size: 0.825rem;
-  padding-right: 3rem;
+
+  @include media($medium-screen) {
+    padding-right: 3rem;
+  }
 }
 
 .event__djs {
-  @include span-columns(3 of 8);
+  margin-bottom: 2rem;
 
-  margin-bottom: 1em;
+  @include media($medium-screen) {
+    @include span-columns(3 of 9);
+  }
+
 
   ul {
     margin: 0;
@@ -44,16 +69,26 @@
   }
 
   ul li {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: normal;
     line-height: 1.2;
     margin: 0;
     padding: 0;
-    text-transform: uppercase;
   }
 
   ul li a {
     color: #222;
+  }
+}
+
+.event__icon {
+  color: #ec4343;
+  text-align: center;
+  margin-bottom: 0.5rem;
+
+  @include media($medium-screen) {
+    float: left;
+    padding-right: 0.5rem;
   }
 }
 
@@ -71,22 +106,15 @@
 
 .event__header {
   position: relative;
-  margin-bottom: 1rem;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: -50px;
-    background-color: transparent;
-    border-top: 25px solid transparent;
-    border-right: 25px solid white;
-    border-bottom: 25px solid transparent;
-  }
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .event__header__title {
-  margin-bottom: 0rem;
+  font-size: 1.75rem;
+  margin-bottom: 0;
+  text-align: center;
 
   a {
     color: $base-font-color;
@@ -96,35 +124,61 @@
   a:hover {
   }
 
+  @include media($medium-screen) {
+    font-size: 2.5rem;
+    text-align: left;
+  }
 }
 
 .event__image {
   @include span-columns(12);
+  @include omega();
   background-color: gray;
+  position: relative;
 
   @include media($medium-screen) {
-    @include span-columns(4);
-  }
+    @include span-columns(3);
 
+    &::after {
+      content: "";
+      position: absolute;
+      top: 38px;
+      right: 0;
+      background-color: transparent;
+      border-top: 16px solid transparent;
+      border-right: 16px solid white;
+      border-bottom: 16px solid transparent;
+    }
+  }
 }
 
 .event__image img {
   display: block;
+  margin: 0 auto;
+  max-width: 320px;
+  height: auto;
+  width: 100%;
+
+  @include media($medium-screen) {
+    max-width: 100%;
+  }
 }
 
 .event__info {
   @include span-columns(12);
+  padding: 1rem;
 
   @include media($medium-screen) {
-    @include span-columns(8);
-    margin-top: 2rem;
+    @include span-columns(9);
+    padding: 0;
+    padding-bottom: 2rem;
     @include omega();
   }
 }
 
 .event__info__detail {
   color: $medium-gray;
-  font-size: 0.825;
+  font-size: 0.825rem;
 }
 
 .event__info__link {
@@ -132,27 +186,35 @@
   margin-top: 1.5em;
 }
 
-.event__info__venue-name {
-  clear: both;
+.event__piece {
+  text-align: center;
 
-  a {
-    color: $medium-gray;
+  @include media($medium-screen) {
+    float: left;
+    text-align: left;
   }
 }
 
 .event__venue {
-  @include span-columns(12);
+  @include span-columns(4.5 of 9);
+  margin-bottom: 1rem;
 
   @include media($medium-screen) {
-    @include span-columns(3 of 8);
+    @include span-columns(3 of 9);
+    position: relative;
   }
 }
 
 .event__date {
-  @include span-columns(12);
+  @include span-columns(4.5 of 9);
+  @include omega();
+  margin-bottom: 1rem;
+  text-align: center;
 
   @include media($medium-screen) {
-    @include span-columns(2 of 8);
+    @include span-columns(3 of 9);
     @include omega();
+    position: relative;
+    text-align: left;
   }
 }

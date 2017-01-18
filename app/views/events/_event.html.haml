@@ -7,22 +7,27 @@
         = link_to event.title, event
 
     .event__djs
-      %h5
-        DJs
-      %ul
-        - event.profiles.each do |profile|
-          %li
-            = link_to profile.name, profile
+      .event__icon
+        = fa_icon "music 2x"
+      .event__piece
+        - if event.profiles.count > 0
+          %ul
+            - event.profiles.each do |profile|
+              %li
+                = link_to profile.name, profile, class: "event__info__detail"
+        - else
+          %p.event__info__detail There are no djs on this lineup
+
     .event__venue
-      %h5
-        = fa_icon "map-marker"
-        Location
-      .event__info__detail
-        = link_to event.venue_name, event.venue
+      .event__icon
+        = fa_icon "map-marker 2x"
+      .event__piece
+        .event__info__detail
+          = link_to event.venue_name, event.venue
+
     .event__date
-      %h5
-        = fa_icon "calendar"
-        Date and Time
+      .event__icon
+        = fa_icon "calendar 2x"
       .event__info__detail
         = format_date(event.start_date)
       .event__info__detail
@@ -32,23 +37,15 @@
       .event__actions__element
         = render partial: "events/like", locals: { event: event }
       .event__actions__element
-        .button
-          = "Tickets"
+        .event__attendees
+          %span
+            = event.likes_count
+          Going
       .event__actions__element
-        .button
-          = "Calendar"
+        .tags
+          = render event.tags
 
-    .event__description
-      %p
-        = event.description
-    .event__attendees
-      = event.likes_count
-      Going
 
-    .tags
-      %h5
-        Genres
-      = render event.tags
     - if user_signed_in? && user_owns_event?(event)
       .event__edit-options
         = link_to 'Edit', edit_event_path(event)

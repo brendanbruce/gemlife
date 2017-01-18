@@ -1,7 +1,7 @@
 .event-list__intro {
   background-color: black;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.825rem;
   font-weight: 100;
   margin-bottom: 2rem;
   padding: 2rem;
@@ -10,11 +10,28 @@
   width: 100%;
 
   select {
-    appearance: button;
+    -webkit-appearance: button;
+    background-color: black;
     border-radius: 0;
-    color: black;
+    color: white;
     display: inline-block;
     margin-left: 0.25rem;
-    padding: 2rem;
+    margin-bottom: 0;
+    padding: 0.5rem;
+    text-align: center;
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 24px) calc(1em + 0px),
+      calc(100% - 16px) calc(1em + 0px),
+      calc(100% - 2em) 0em;
+    background-size:
+      8px 8px,
+      8px 8px,
+      1px 3em;
+    background-repeat: no-repeat;
+    width: 15rem;
   }
 }

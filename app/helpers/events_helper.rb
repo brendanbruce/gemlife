@@ -3,22 +3,13 @@ module EventsHelper
     fa_icon("check").html_safe + " Going"
   end
 
-  def current_date
-    Date.today
-  end
-
-  def current_day
-    current_date.strftime("%A")
-  end
-
   def days_list
-    days_array = [current_date]
-
-    for i in 1..6
-      date = current_date + i.days
-      days_array.push(date)
+    days_array = []
+    for i in 0..6
+      date = Date.today + i.days
+      day = date.strftime("%A")
+      days_array.push([day, date])
     end
-
     days_array
   end
 
