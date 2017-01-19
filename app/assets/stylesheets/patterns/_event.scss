@@ -1,7 +1,7 @@
 .event {
   @include outer-container;
   background-color: white;
-  border-bottom: 1px $light-gray solid;
+  border: 1px $light-gray solid;
   padding: 0;
   margin-bottom: 2rem;
   position: relative;
