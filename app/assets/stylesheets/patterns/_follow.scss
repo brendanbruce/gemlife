@@ -1,0 +1,59 @@
+.follow {
+  align-items: center;
+  background-color: $light-gray;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+
+  @include media($medium-screen) {
+  }
+}
+
+.follow__count {
+}
+
+.follow__text {
+  float: left;
+  margin-right: 1rem;
+  padding: 0.25rem;
+}
+
+.follow__button {
+  @include appearance(none);
+  -webkit-font-smoothing: antialiased;
+  border-radius: $base-border-radius;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid white;
+  color: $medium-gray;
+  cursor: pointer;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: $action-color;
+    border: 1px solid $action-color;
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.follow__button--active {
+  background-color: $action-color;
+  border: 1px solid $action-color;
+  color: #fff;
+}

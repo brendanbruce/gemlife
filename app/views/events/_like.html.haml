@@ -1,10 +1,16 @@
-- if current_user
-  - if like = current_user.likes.find_by(event_id: event.id)
-    = form_for like, method: :delete do |f|
-      = f.button button_like, type: "submit", class: "button--primary button--expand"
+.follow
+  .follow__text
+    %span.follow__count
+      = event.likes_count
+    Going
 
-  - else
-    = form_for Like.new(event: event) do |f|
-      = f.hidden_field(:event_id, value: event.id)
-      = f.button button_like, type: "submit", class: "button button--expand"
+  - if current_user
+    - if like = current_user.likes.find_by(event_id: event.id)
+      = form_for like, method: :delete do |f|
+        = f.button form_icon("check"), type: "submit", class: "follow__button follow__button--active"
+
+    - else
+      = form_for Like.new(event: event) do |f|
+        = f.hidden_field(:event_id, value: event.id)
+        = f.button form_icon("check"), type: "submit", class: "follow__button"
 

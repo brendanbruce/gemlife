@@ -1,8 +1,4 @@
 module EventsHelper
-  def button_like
-    fa_icon("check").html_safe + " Going"
-  end
-
   def days_list
     days_array = []
     for i in 0..6
@@ -32,6 +28,11 @@ module EventsHelper
       event.venue.id
     end
   end
+
+  def form_icon(icon)
+    fa_icon(icon).html_safe
+  end
+
 
   def format_date(start_date)
     if start_date.present?
