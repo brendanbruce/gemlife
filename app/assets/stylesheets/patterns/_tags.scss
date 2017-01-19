@@ -1,8 +1,10 @@
 .tags a {
   background-color: white;
   border-radius: $base-border-radius;
-  border: 2px solid $blue;
+  border: 1px solid $blue;
   display: inline-block;
+  font-size: 14px;
   margin-right: 0.5em;
   padding: 0.25em 0.5em;
+  text-align: right;
 }

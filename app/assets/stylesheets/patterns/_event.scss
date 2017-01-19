@@ -3,81 +3,43 @@
   background-color: white;
   border-bottom: 1px $light-gray solid;
   padding: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   position: relative;
-
-  @include media($medium-screen) {
-    padding: 1.5rem;
-  }
 }
 
-.event__actions {
+.event__follows {
   @include span-columns(9 of 9);
-  @include omega();
-  display: flex;
-  justify-content: space-between;
-  margin: 1em 0;
-}
-
-.event__actions__element {
-  padding: 0 0.25em;
-  width: 100%;
-
-  &:first-child {
-    padding-left: 0;
-  }
-
-  &:last-child {
-    padding-right: 0;
-  }
-}
-
-.event__attendees {
-  clear: both;
-
-  span {
-    background-color: black;
-    border-radius: 16px;
-    color: white;
-    display: inline-block;
-    margin-right: 0.25rem;
-    padding: 0.25rem 0.75rem;
-    text-align: center;
-  }
-}
-
-.event__description {
-  clear: both;
-  font-size: 0.825rem;
+  margin-bottom: 1rem;
 
   @include media($medium-screen) {
-    padding-right: 3rem;
+    @include span-columns(3 of 9);
+    @include omega();
+    margin-bottom: 0;
   }
 }
 
 .event__djs {
-  margin-bottom: 2rem;
+  @include span-columns(9 of 9);
 
   @include media($medium-screen) {
-    @include span-columns(3 of 9);
-  }
-
-
-  ul {
-    margin: 0;
-    padding: 0;
+    margin-top: 1rem;
+    @include span-columns(5 of 9);
   }
 
   ul li {
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.2;
+    display: inline;
+    font-size: 1.25rem;
+    font-weight: 800;
     margin: 0;
     padding: 0;
   }
 
   ul li a {
     color: #222;
+  }
+
+  ul li a:hover {
+    color: $action-color;
   }
 }
 
@@ -94,7 +56,7 @@
 
 .event__edit-options {
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   background-color: $blue;
   padding: 0.5rem 1rem;
@@ -105,16 +67,19 @@
 }
 
 .event__header {
-  position: relative;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-  width: 100%;
+  @include span-columns(9 of 9);
+  margin-bottom: 1rem;
+
+  @include media($medium-screen) {
+    @include span-columns(6 of 9);
+    margin-bottom: 0;
+  }
 }
 
 .event__header__title {
-  font-size: 1.75rem;
+  font-size: 1.825rem;
+  line-height: 1;
   margin-bottom: 0;
-  text-align: center;
 
   a {
     color: $base-font-color;
@@ -122,6 +87,7 @@
   }
 
   a:hover {
+    color: $action-color;
   }
 
   @include media($medium-screen) {
@@ -132,22 +98,23 @@
 
 .event__image {
   @include span-columns(12);
-  @include omega();
-  background-color: gray;
+  background-color: $light-gray;
   position: relative;
 
   @include media($medium-screen) {
     @include span-columns(3);
+    max-height: 240px;
+    overflow: hidden;
 
     &::after {
       content: "";
       position: absolute;
-      top: 38px;
+      top: 40px;
       right: 0;
       background-color: transparent;
-      border-top: 16px solid transparent;
-      border-right: 16px solid white;
-      border-bottom: 16px solid transparent;
+      border-top: 12px solid transparent;
+      border-right: 12px solid white;
+      border-bottom: 12px solid transparent;
     }
   }
 }
@@ -170,15 +137,18 @@
 
   @include media($medium-screen) {
     @include span-columns(9);
-    padding: 0;
-    padding-bottom: 2rem;
     @include omega();
+    padding-left: 0;
   }
 }
 
 .event__info__detail {
   color: $medium-gray;
   font-size: 0.825rem;
+
+  a {
+    color: $medium-gray;
+  }
 }
 
 .event__info__link {
@@ -186,35 +156,13 @@
   margin-top: 1.5em;
 }
 
-.event__piece {
-  text-align: center;
+.event__tags {
+  @include span-columns(9 of 9);
+  margin-top: 1rem;
 
   @include media($medium-screen) {
-    float: left;
-    text-align: left;
-  }
-}
-
-.event__venue {
-  @include span-columns(4.5 of 9);
-  margin-bottom: 1rem;
-
-  @include media($medium-screen) {
-    @include span-columns(3 of 9);
-    position: relative;
-  }
-}
-
-.event__date {
-  @include span-columns(4.5 of 9);
-  @include omega();
-  margin-bottom: 1rem;
-  text-align: center;
-
-  @include media($medium-screen) {
-    @include span-columns(3 of 9);
+    @include span-columns(4 of 9);
     @include omega();
-    position: relative;
-    text-align: left;
+    text-align: right;
   }
 }

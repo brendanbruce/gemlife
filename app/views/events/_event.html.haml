@@ -1,50 +1,32 @@
 .event
   = event_flyer_image(event)
   .event__info
-
     .event__header
+      .event__info__detail
+        = link_to event.venue_name, event.venue
       %h2.event__header__title
         = link_to event.title, event
+      .event__info__detail
+        = format_date(event.start_date) + " / " + format_time(event.start_time)
+    .event__follows
+      = render partial: "events/like", locals: { event: event }
 
     .event__djs
-      .event__icon
-        = fa_icon "music 2x"
-      .event__piece
-        - if event.profiles.count > 0
-          %ul
-            - event.profiles.each do |profile|
-              %li
-                = link_to profile.name, profile, class: "event__info__detail"
-        - else
-          %p.event__info__detail There are no djs on this lineup
+      .event__info__detail with DJs
+      - if event.profiles.count > 0
+        %ul
+          - event.profiles.each do |profile|
+            %li
+              - last = event.profiles[-1]
+              - if profile == last && event.profiles.length > 1
+                = "and"
+              = link_to profile.name, profile
+      - else
+        %p.event__info__detail There are no djs on this lineup
 
-    .event__venue
-      .event__icon
-        = fa_icon "map-marker 2x"
-      .event__piece
-        .event__info__detail
-          = link_to event.venue_name, event.venue
-
-    .event__date
-      .event__icon
-        = fa_icon "calendar 2x"
-      .event__info__detail
-        = format_date(event.start_date)
-      .event__info__detail
-        = format_time(event.start_time)
-
-    .event__actions
-      .event__actions__element
-        = render partial: "events/like", locals: { event: event }
-      .event__actions__element
-        .event__attendees
-          %span
-            = event.likes_count
-          Going
-      .event__actions__element
-        .tags
-          = render event.tags
-
+    .event__tags
+      .tags
+        = render event.tags
 
     - if user_signed_in? && user_owns_event?(event)
       .event__edit-options
