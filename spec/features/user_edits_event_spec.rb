@@ -8,7 +8,7 @@ RSpec.feature "user edits an event", type: :feature do
     login_as(user, scope: :user)
     visit events_path(as: user)
 
-    expect(page).to have_link("Edit (created by you)")
+    expect(page).to have_link("Edit")
   end
 
   scenario "user does not see edit button when not logged in" do
@@ -17,7 +17,7 @@ RSpec.feature "user edits an event", type: :feature do
 
     visit events_path
 
-    expect(page).to_not have_link("Edit (created by you)")
+    expect(page).to_not have_link("Edit")
   end
 
   scenario "user does not see edit button when user did not create event" do
@@ -28,7 +28,7 @@ RSpec.feature "user edits an event", type: :feature do
     login_as(user, scope: :user)
     visit events_path(as: user)
 
-    expect(page).to_not have_link("Edit (created by you)")
+    expect(page).to_not have_link("Edit")
   end
 
   scenario "user visits edit page from the index page" do
@@ -37,7 +37,7 @@ RSpec.feature "user edits an event", type: :feature do
 
     login_as(user, scope: :user)
     visit events_path(as: user)
-    click_link_or_button("Edit (created by you)")
+    click_link_or_button("Edit")
 
     expect(page).to have_css("#edit_event_#{event.id}")
   end
