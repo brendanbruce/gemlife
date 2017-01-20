@@ -28,7 +28,7 @@ RSpec.feature "user edits an event", type: :feature do
     login_as(user, scope: :user)
     visit events_path(as: user)
 
-    expect(page).to_not have_link("Edit")
+    expect(page).to_not have_css("#edit_event_#{event.id}")
   end
 
   scenario "user visits edit page from the index page" do
@@ -40,6 +40,17 @@ RSpec.feature "user edits an event", type: :feature do
     click_link_or_button("Edit")
 
     expect(page).to have_css("#edit_event_#{event.id}")
+  end
+
+  scenario "user visits event edit page when he didn't create event" do
+    user = create(:user)
+    user2 = create(:user)
+    event = create(:event, user_id: user2.id)
+
+    login_as(user, scope: :user)
+    visit events_path(as: user)
+
+    expect(page).to have_css(".event-list__intro")
   end
 
   scenario "user updates event" do
