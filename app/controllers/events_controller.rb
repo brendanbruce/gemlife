@@ -23,6 +23,9 @@ class EventsController < ApplicationController
   end
 
   def edit
+    unless @event.user_id == current_user.id
+      redirect_to events_path, flash: { error: "You can't edit this" }
+    end
   end
 
   def create
@@ -48,6 +51,10 @@ class EventsController < ApplicationController
   end
 
   def update
+    unless @event.user_id == current_user.id
+      redirect_to events_path, flash: { error: "You can't edit this" }
+    end
+
     profile_info = event_params
 
     respond_to do |format|
