@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     if params[:find_by]
       @events = Event.where(start_date: params[:find_by])
     else
-      @events = Event.all
+      @events = Event.where(start_date: Date.today)
     end
   end
 
