@@ -37,20 +37,20 @@ class Event < ActiveRecord::Base
     likes.count
   end
 
-  def venue_name
-    if venue.blank?
-      "No venue defined"
-    else
-      venue.name
-    end
-  end
-
   def upcoming?(event)
     event_time = event.date
     if event_time > Time.now
       return true
     elsif event_time.nil? || event_time < Time.now
       return false
+    end
+  end
+
+  def venue_name
+    if venue.blank?
+      "No venue defined"
+    else
+      venue.name
     end
   end
 end
