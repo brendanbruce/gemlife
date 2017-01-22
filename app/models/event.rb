@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :profiles
   attr_accessor :profile_id
 
-  acts_as_taggable
+  acts_as_taggable_on :tags
 
   def likes_count
     likes.count

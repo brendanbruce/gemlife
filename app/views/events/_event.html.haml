@@ -26,7 +26,8 @@
 
     .event__tags
       .tags
-        = render event.tags
+        - event.tags.each do |tag|
+          = link_to tag.name, tag_path(tag)
 
     - if user_signed_in? && user_owns_event?(event)
       .event__edit-options
