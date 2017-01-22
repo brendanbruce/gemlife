@@ -6,20 +6,13 @@
 }
 
 .profile__header {
-  line-height: 1;
+  display: inline;
+  line-height: 1.2;
+  vertical-align: middle;
 }
 
 .profile__image {
-  @include span-columns(4);
-  overflow: hidden;
-
-  img {
-    border-radius: $base-border-radius;
-    box-shadow: $card-shadow;
-    height: auto;
-    padding-right: 2em;
-    width: 100%;
-  }
+  @include span-columns(3);
 }
 
 .profile__info {
@@ -27,7 +20,8 @@
 }
 
 .profile__links {
-  @include span-columns(1);
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .profile__stat__row {
