@@ -15,7 +15,7 @@
       - if user_signed_in?
         %li.navigation__item
           - if current_user.profile
-            = link_to "My Profile", edit_profile_path(current_user.profile.id), class: "navigation__link"
+            = link_to "My Profile", profile_path(current_user.profile.id), class: "navigation__link"
           - else
             = link_to "My Profile", new_profile_path, class: "navigation__link"
         %li.navigation__item
