@@ -1,7 +1,6 @@
-%h3
-  %ul.social-media
-    - profile.social_array.each do |i|
-      - if i.present?
-        %li.social-media__icon
-          = link_to(i[0]) do
-            = fa_icon i[1]
+%ul.social-media
+  - profile.social_array.each do |i|
+    - if i.present?
+      %li.social-media__icon
+        = link_to(i[0]) do
+          = fa_icon i[1]

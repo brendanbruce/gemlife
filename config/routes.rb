@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   resources :events
   resources :likes, only: [:index, :create, :destroy]
   resources :venues
-  resources :profiles
+  resources :profiles do
+    scope module: :profiles do
+      resources :gigs, only: [:index]
+    end
+  end
   resources :tags, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

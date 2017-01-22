@@ -1,0 +1,18 @@
+%header.full-width-container--dark
+  .outer-container
+    .profile
+      .profile__image
+        .responsive-circle{ style: "background-image:url('#{profile.image}')" }
+      .profile__info
+        %h2.profile__header
+          = profile.name
+        .profile__links
+          - if (current_user.id == profile.user_id)
+            = link_to "Edit", edit_profile_path(current_user.profile), class: "button"
+          - else
+            %a.button Follow
+        .social-media
+          = render partial: "profiles/social", locals: { profile: profile }
+        .bio
+          = profile.bio
+

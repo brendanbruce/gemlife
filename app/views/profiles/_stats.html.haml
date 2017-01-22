@@ -1,0 +1,18 @@
+.profile__stat__row
+  .outer-container
+    .profile__stat
+      %h5 Followers
+      %h3 200
+    .profile__stat
+      %h5 Following
+      %h3 3
+    .profile__stat
+      = link_to profile_gigs_path(profile) do
+        %h5 Gigs
+        %h3
+          = profile.gigs.count
+    .profile__stat
+      %h5 Member Since
+      %h3
+        = member_since_date(profile.user.created_at)
+
