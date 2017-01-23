@@ -1,4 +1,9 @@
 %main
+  = @profile.follows.count
+  - @profile.follows.each do |follow|
+    - if follow.followable_type == "Profile"
+      = follow.name
+
   = render partial: "profile", locals: { profile: @profile }
   = render partial: "stats", locals: { profile: @profile }
 

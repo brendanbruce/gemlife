@@ -6,6 +6,9 @@ class Profile < ActiveRecord::Base
   has_many :gigs
   has_many :events, through: :gigs
 
+  has_many :follows, as: :followable
+  has_many :follows
+
   has_attached_file :image, styles: {
     preview: "640x640"
   }
