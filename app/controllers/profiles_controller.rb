@@ -1,6 +1,16 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :require_permission, only: [:edit]
+  def followers
+    profile = Profile.find(params[:id])
+    @profile = ProfilePresenter.new(profile)
+  end
+
+  def following
+    profile = Profile.find(params[:id])
+    @profile = ProfilePresenter.new(profile)
+  end
+
 
   def index
     @profiles = Profile.all

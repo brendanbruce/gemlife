@@ -1,11 +1,15 @@
 .profile__stat__row
   .outer-container
     .profile__stat
-      %h5 Followers
-      %h3 200
+      = link_to controller: "profiles", action: "followers" do
+        %h5 Followers
+        %h3
+          = profile.followers.count
     .profile__stat
-      %h5 Following
-      %h3 3
+      = link_to controller: "profiles", action: "followers" do
+        %h5 Following
+        %h3
+          = profile.follows.count
     .profile__stat
       = link_to profile_gigs_path(profile) do
         %h5 Gigs

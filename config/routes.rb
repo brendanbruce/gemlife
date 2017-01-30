@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :likes, only: [:index, :create, :destroy]
   resources :venues
   resources :profiles do
+    member do
+      get :followers
+      get :following
+    end
     scope module: :profiles do
       resources :gigs, only: [:index]
     end
