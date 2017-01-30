@@ -16,4 +16,8 @@ class Follow < ActiveRecord::Base
   def name
     followable_id_for.name
   end
+
+  def image
+    followable_id_for.name
+  end
 end

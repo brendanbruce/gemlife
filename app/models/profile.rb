@@ -17,4 +17,8 @@ class Profile < ActiveRecord::Base
                    "image/jpeg",
                    "image/png",
                    "image/gif"] }
+
+  def followers
+    Follow.where(followable_id: self.id, followable_type: "Profile")
+  end
 end
