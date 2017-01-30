@@ -1,0 +1,10 @@
+.thumb-grid {
+  @include span-columns(12);
+  display: flex;
+}
+
+.thumb-grid__cell {
+  @include span-columns(3);
+  border: $base-border;
+  padding: 1rem;
+}
