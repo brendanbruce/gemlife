@@ -33,7 +33,66 @@
 
 .profile__stat {
   @include span_columns(3);
-  color: white;
+  @include transition(all 0.2s ease-out);
+  color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  a {
+    color: #ffffff;
+  }
+
+  h5 {
+    font-weight: normal;
+    opacity: 0.5;
+  }
+
+  h5, h3 {
+    margin: 0;
+  }
+}
+
+.profile__stat--link {
+  @include span_columns(3);
+  @include transition(all 0.2s ease-out);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: #ff4453;
+    box-shadow: 0 0 20px #ff4453;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.75rem;
+  }
+
+  a {
+    color: #ffffff;
+  }
+
+  h5 {
+    font-weight: normal;
+    opacity: 0.5;
+  }
+
+  h5, h3 {
+    margin: 0;
+  }
+}
+
+.profile__stat--active {
+  @include span_columns(3);
+  background-color: #ff4453;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 0 20px #ff4453;
+  padding: 0.75rem;
+  padding: 0.75rem;
+
+  a {
+    color: #ffffff;
+  }
 
   h5 {
     font-weight: normal;

@@ -1,20 +1,23 @@
 .profile__stat__row
   .outer-container
-    .profile__stat
+    %div{ class: ["profile__stat--link", ("profile__stat--active" if controller.action_name == "followers")] }
       = link_to followers_profile_path(profile) do
         %h5 Followers
         %h3
           = profile.followers.count
-    .profile__stat
+
+    %div{ class: ["profile__stat--link", ("profile__stat--active" if controller.action_name == "following")] }
       = link_to following_profile_path(profile) do
         %h5 Following
         %h3
           = profile.follows.count
-    .profile__stat
+
+    %div{ class: ["profile__stat--link", ("profile__stat--active" if controller.action_name == "index")] }
       = link_to profile_gigs_path(profile) do
         %h5 Gigs
         %h3
           = profile.gigs.count
+
     .profile__stat
       %h5 Member Since
       %h3
