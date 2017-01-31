@@ -3,7 +3,6 @@
   = render partial: "stats", locals: { profile: @profile }
 
   .main-container.outer-container
-    = render partial: "following", locals: { profile: @profile }
     %h3
       Upcoming events for #{ @profile.name }
     - @profile.events.each do |event|

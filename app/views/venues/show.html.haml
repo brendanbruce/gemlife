@@ -3,8 +3,8 @@
     %h1
       = @venue.name
     %h3
-      - @venue.follows.each do |follow|
-        = follow.follower.name
+      - @venue.followers.each do |follow|
+        = follow.profile.name
 
   %section
     = @venue.description

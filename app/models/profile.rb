@@ -18,7 +18,19 @@ class Profile < ActiveRecord::Base
                    "image/png",
                    "image/gif"] }
 
-  def followers
-    Follow.where(followable_id: self.id, followable_type: "Profile")
+  def followers(type = nil)
+    if type
+      Follow.where(followable_id: self.id, followable_type: type)
+    else
+      Follow.where(followable_id: self.id)
+    end
+  end
+
+  def following(type = nil)
+    if type
+      Follow.where(profile_id: self.id, followable_type: type)
+    else
+      Follow.where(profile_id: self.id)
+    end
   end
 end

@@ -3,8 +3,9 @@
   = render partial: "stats", locals: { profile: @profile }
 
   .main-container.outer-container
-    = render partial: "following", locals: { profile: @profile }
-    %h3
-      Upcoming events for #{ @profile.name }
-    - @profile.events.each do |event|
-      = render partial: "events/event", locals: { event: event }
+    %h3 Followers
+    .thumb-grid
+      - @profile.followers("Profile").each do |following|
+        .thumb-grid__cell
+          = following.image
+          %h3 Unfollow

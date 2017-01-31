@@ -1,8 +1,0 @@
-%h3 DJs
-.thumb-grid
-  - profile.follows.each do |follow|
-    - if follow.followable_type == "Profile"
-      .thumb-grid__cell
-        = follow.image
-        = follow.name
-        %h3 Unfollow
