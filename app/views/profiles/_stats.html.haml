@@ -1,12 +1,12 @@
 .profile__stat__row
   .outer-container
     .profile__stat
-      = link_to controller: "profiles", action: "followers" do
+      = link_to followers_profile_path(profile) do
         %h5 Followers
         %h3
           = profile.followers.count
     .profile__stat
-      = link_to controller: "profiles", action: "followers" do
+      = link_to following_profile_path(profile) do
         %h5 Following
         %h3
           = profile.follows.count
