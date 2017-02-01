@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :like do |f|
-    f.user_id nil
-    f.event_id nil
+  factory :like do
+    user
+    event
   end
 end
