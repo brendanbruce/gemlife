@@ -14,7 +14,7 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:venue) }
   end
 
-  describe "assocations" do
+  describe "associations" do
     it { should belong_to(:user) }
     it { should belong_to(:venue) }
     it { should accept_nested_attributes_for(:venue) }

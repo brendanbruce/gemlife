@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe Follow, type: :model do
   describe "factory" do
     it "has a valid factory" do

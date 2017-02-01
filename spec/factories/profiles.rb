@@ -1,7 +1,7 @@
 require "faker"
 
 FactoryGirl.define do
-  factory :profile do |f|
-    f.name { Faker::Name.name }
+  factory :profile do |profile|
+    profile.name { Faker::Name.name }
   end
 end
