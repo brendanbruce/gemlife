@@ -1,6 +1,6 @@
 .navigation {
   @include row();
-  background-color: black;
+  background-color: #161b2d;
   border-bottom: 1px $light-gray solid;
   border-top: 1px $light-gray solid;
   position: relative;
@@ -20,20 +20,30 @@
   display: block;
   float: left;
   height: 100%;
+  padding: 20px 1em 0 1em;
 }
 
 .navigation__link {
-  background-color: black;
-  border-bottom: black 3px solid;
-  color: $header-nav-color;
+  transition: border 0.2s ease-out;
+  border-bottom: transparent 3px solid;
+  color: white;
   display: block;
-  font-size: 1em;
+  font-size: 0.875;
+  font-weight: 600;
   height: 100%;
-  padding: 0.875rem 1rem;
+  line-height: 1;
+  padding-bottom: 9px;
 
-  &:hover {
-    border-bottom: white 3px solid;
+  .navigation__left & {
+    text-transform: uppercase;
+  }
+
+  &:visited,
+  &:hover,
+  &:active {
+    border-bottom: blue 3px solid;
     color: white;
+    padding-bottom: 5px;
   }
 }
 

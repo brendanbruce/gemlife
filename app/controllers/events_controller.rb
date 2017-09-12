@@ -8,6 +8,7 @@ class EventsController < ApplicationController
     else
       @events = Event.where(start_date: Date.today)
     end
+    @events = Event.all
   end
 
   def show
