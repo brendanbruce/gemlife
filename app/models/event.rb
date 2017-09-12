@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
   validates :venue, presence: true
   accepts_nested_attributes_for :venue
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :users, through: :likes
 
   has_many :gigs

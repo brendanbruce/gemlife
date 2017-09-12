@@ -10,7 +10,7 @@ module EventsHelper
   end
 
   def event_flyer_image(event)
-    if event.flyer_file_name.present?
+    if event_available?(event, event.flyer.url)
       content_tag(:div, image_tag(event.flyer.url), class: "event__image")
     end
   end
@@ -24,7 +24,7 @@ module EventsHelper
   end
 
   def event_venue(event)
-    if event.venue
+    if event_available?(event)
       event.venue.id
     end
   end
@@ -52,5 +52,13 @@ module EventsHelper
 
   def user_owns_event?(event)
     event.user_id == current_user.id
+  end
+
+  private
+
+  def event_available?(event, property)
+    if event and property.present?
+      return true
+    end
   end
 end

@@ -16,8 +16,13 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like_id = params[:id]
-    Like.destroy(like_id)
-    redirect_to events_path
+    @like = Like.find(params[:id])
+    @like.destroy
+
+    respond_to do |f|
+      f.html { redirect_to likes_path }
+      f.json { head :no_content }
+      f.js { render :layout => false }
+    end
   end
 end

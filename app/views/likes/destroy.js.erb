@@ -1,0 +1,5 @@
+$(".destroy-button").bind("ajax:success", function() {
+  console.log("fc");
+  console.log($(this));
+  $(this).removeClass("follow__button--active");
+});

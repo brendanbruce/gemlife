@@ -32,4 +32,4 @@
     - if user_signed_in? && user_owns_event?(event)
       .event__edit-options
         = link_to 'Edit', edit_event_path(event)
-        = link_to 'Remove', edit_event_path(event)
+        = link_to 'Remove', event, :method => :delete

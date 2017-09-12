@@ -6,11 +6,10 @@
 
   - if current_user
     - if like = current_user.likes.find_by(event_id: event.id)
-      = form_for like, method: :delete do |f|
-        = f.button form_icon("check"), type: "submit", class: "follow__button follow__button--active"
+      = link_to "Destroy", like, method: :delete, data: { test: like.id }, :remote => true, :class => "follow__button follow__button--active destroy-button"
 
     - else
-      = form_for Like.new(event: event) do |f|
+      = form_for Like.new(event: event), remote: true do |f|
         = f.hidden_field(:event_id, value: event.id)
-        = f.button form_icon("check"), type: "submit", class: "follow__button"
+        = f.button form_icon("check"), id: "add_like",  type: "submit", class: "follow__button"
 
