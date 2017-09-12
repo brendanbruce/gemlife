@@ -1,2 +1,45 @@
 %h1
   Hello
+%section.hero
+  Main Image Area
+  %h1 Text Header
+%section.overlay
+  %h2.overlay__headline
+  %p.overlay__text
+
+%section
+  %h2 Tonight Events
+  - 1..3.each do
+    %section.card
+      .card__image
+        Insert image
+      %h3.card__heading
+        Test
+      .card__meta
+        Meta info
+
+%section
+  %h2 Featured Party
+  .featured-event__image
+    Image Here
+  .featured-event__details
+    Details Here
+
+%section
+  %h2 Genres
+  - 1..6.each do
+    %section.card--simple
+      .card--simple__image
+        Image Here
+      .card--simple__header
+        %h3 Genre Name
+
+%section
+  %h2 Attention DJs
+  %p
+    Lorem ispum dolor site amet bla bla bl
+  .dj-cta
+    Claim Your Name
+  .dj-cta
+    Register Now
+
