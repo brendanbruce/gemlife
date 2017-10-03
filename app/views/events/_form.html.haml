@@ -11,13 +11,27 @@
   = form_for @event, html: { multipart: true } do |f|
     .field-group
       .field-group__header
-        %h3 First, tell us a little about your party
+        %h3 Venue Info
       .field-group__fields
         .field
           = f.label :title
           = f.text_field :title, placeholder: "Enter the name of your party here"
+        .field-group__completer{ id: "formCompleter" }
+          .field
+            = f.label :venue
+            = f.text_field :venue, class: "completer-form"
+          .field-group__venues
+            .field-group__add-new
+              Add Venue
+            %ul
+              - @venues.each do |venue|
+                %li.field-group__list-item{ data: { js: "venueName", id: venue.id, name: venue.name } }
+                  = venue.name
+        .field-group__new-venue
+          This is where we will add new venue
+          of info doesn't already exist
         .field
-          = f.label :venue
+          = f.label :venue2
           = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name, event_venue(@event)), { include_blank: true }, { class: "autocomplete" }
         .field-group__venue-notice
           %span Don't see your venue?

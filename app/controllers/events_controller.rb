@@ -20,6 +20,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @venues = Venue.all
   end
 
   def edit
