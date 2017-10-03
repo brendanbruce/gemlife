@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-timepicker-rails'
 gem "neat"
+gem 'rb-readline'
 gem "paperclip"
 gem 'pg'
 gem 'rails', '4.2.1'
