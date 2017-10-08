@@ -10,6 +10,17 @@
   display: none;
 }
 
+.field-group__new-venue {
+  background-color: #fafafa;
+  border-color: 1px solid black;
+  display: none;
+  padding: 1rem;
+}
+
+.field-group__new-venue--visible {
+  display: block;
+}
+
 .field-group__list-item--visible, .field-group__add-new--visible {
   color: #999;
   cursor: pointer;

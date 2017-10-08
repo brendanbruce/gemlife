@@ -20,16 +20,24 @@
           .field
             = f.label :venue
             = f.text_field :venue, class: "completer-form"
+            .field-group__clear{ id: "formCompleterClear" }
+              x
           .field-group__venues
             .field-group__add-new
               Add Venue
-            %ul
+            %ul.field-group__item-set{ id: "venueSet" }
               - @venues.each do |venue|
                 %li.field-group__list-item{ data: { js: "venueName", id: venue.id, name: venue.name } }
                   = venue.name
-        .field-group__new-venue
-          This is where we will add new venue
-          of info doesn't already exist
+          .field-group__new-venue{ id: "newVenueAddress" }
+            %button.field-group__new-venue-cancel{ id: "newVenueCancel" }
+              Cancel
+            .field
+              Address
+            .field
+              City
+            .field
+              State
         .field
           = f.label :venue2
           = f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name, event_venue(@event)), { include_blank: true }, { class: "autocomplete" }
